@@ -1,406 +1,672 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Aivora — AI Tools Directory</title>
-<meta name="description" content="Discover the best AI tools for writing, images, video, music, coding and productivity.">
+  <title>Aivora — AI Tools Directory</title>
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <meta
+    name="description"
+    content="Discover useful AI tools for writing, images, video, music, coding and productivity."
+  >
 
-body {
-  font-family: Arial, sans-serif;
-  background: #080d1a;
-  color: white;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 7%;
-  border-bottom: 1px solid #202943;
-  position: sticky;
-  top: 0;
-  background: #080d1a;
-  z-index: 10;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.logo {
-  font-size: 28px;
-  font-weight: 800;
-  color: #8b6cff;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080d1a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 22px;
-  font-size: 14px;
-}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+      border-bottom: 1px solid #202943;
+      position: sticky;
+      top: 0;
+      background: rgba(8, 13, 26, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
 
-.hero {
-  text-align: center;
-  padding: 85px 20px 65px;
-  background: linear-gradient(180deg, #111a35, #080d1a);
-}
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #8b6cff;
+      letter-spacing: -1px;
+    }
 
-.hero h1 {
-  font-size: clamp(40px, 8vw, 70px);
-  margin-bottom: 18px;
-}
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
 
-.hero h1 span {
-  color: #8b6cff;
-}
+    nav a:hover {
+      color: #8b6cff;
+    }
 
-.hero p {
-  max-width: 650px;
-  margin: auto;
-  color: #aeb7cc;
-  font-size: 18px;
-}
+    .hero {
+      text-align: center;
+      padding: 85px 20px 65px;
+      background: linear-gradient(180deg, #111a35, #080d1a);
+    }
 
-.search {
-  max-width: 650px;
-  margin: 30px auto 0;
-}
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 70px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
 
-.search input {
-  width: 100%;
-  padding: 17px 20px;
-  border-radius: 12px;
-  border: 1px solid #303a58;
-  background: #11182b;
-  color: white;
-  outline: none;
-  font-size: 16px;
-}
+    .hero h1 span {
+      color: #8b6cff;
+    }
 
-.categories {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 30px 7%;
-}
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #aeb7cc;
+      font-size: 18px;
+    }
 
-.category {
-  padding: 10px 17px;
-  border: 1px solid #303a58;
-  border-radius: 30px;
-  background: #11182b;
-  color: #c4cbe0;
-  cursor: pointer;
-}
+    .search {
+      max-width: 650px;
+      margin: 30px auto 0;
+    }
 
-.category:hover {
-  background: #8b6cff;
-  color: white;
-}
+    .search input {
+      width: 100%;
+      padding: 17px 20px;
+      border-radius: 12px;
+      border: 1px solid #303a58;
+      background: #11182b;
+      color: #ffffff;
+      outline: none;
+      font-size: 16px;
+      transition: 0.2s;
+    }
 
-section {
-  padding: 45px 7%;
-}
+    .search input:focus {
+      border-color: #8b6cff;
+      box-shadow: 0 0 0 3px rgba(139, 108, 255, 0.15);
+    }
 
-.section-title {
-  margin-bottom: 30px;
-}
+    .search input::placeholder {
+      color: #69738d;
+    }
 
-.section-title h2 {
-  font-size: 32px;
-}
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 30px 7%;
+    }
 
-.section-title p {
-  color: #8e98b0;
-  margin-top: 6px;
-}
+    .category {
+      padding: 10px 17px;
+      border: 1px solid #303a58;
+      border-radius: 30px;
+      background: #11182b;
+      color: #c4cbe0;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
 
-.tools {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+    .category:hover,
+    .category.active {
+      background: #8b6cff;
+      border-color: #8b6cff;
+      color: #ffffff;
+    }
 
-.card {
-  background: #11182b;
-  border: 1px solid #222c47;
-  border-radius: 18px;
-  padding: 25px;
-  transition: 0.2s;
-}
+    section {
+      padding: 45px 7%;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #8b6cff;
-}
+    .section-title {
+      margin-bottom: 30px;
+    }
 
-.icon {
-  font-size: 38px;
-  margin-bottom: 15px;
-}
+    .section-title h2 {
+      font-size: 32px;
+      line-height: 1.2;
+    }
 
-.card h3 {
-  margin-bottom: 8px;
-}
+    .section-title p {
+      color: #8e98b0;
+      margin-top: 6px;
+    }
 
-.tag {
-  display: inline-block;
-  font-size: 12px;
-  padding: 5px 9px;
-  border-radius: 20px;
-  background: #202944;
-  color: #a99aff;
-  margin-bottom: 12px;
-}
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-.card p {
-  color: #9fa9c0;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
+    .card {
+      background: #11182b;
+      border: 1px solid #222c47;
+      border-radius: 18px;
+      padding: 25px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
 
-.button {
-  display: inline-block;
-  padding: 10px 15px;
-  background: #8b6cff;
-  color: white;
-  border-radius: 9px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-}
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #8b6cff;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    }
 
-.about {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
+    .icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
 
-.about p {
-  color: #aeb7cc;
-}
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
 
-footer {
-  margin-top: 40px;
-  padding: 35px;
-  text-align: center;
-  border-top: 1px solid #202943;
-  color: #69738d;
-}
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #202944;
+      color: #a99aff;
+      margin-bottom: 12px;
+    }
 
-.no-results {
-  display: none;
-  text-align: center;
-  color: #8e98b0;
-  padding: 40px;
-}
+    .card p {
+      color: #9fa9c0;
+      font-size: 14px;
+      margin-bottom: 20px;
+      min-height: 67px;
+    }
 
-@media(max-width:600px) {
-  header {
-    padding: 18px 5%;
-  }
+    .button {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #8b6cff;
+      color: #ffffff;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
 
-  nav a {
-    margin-left: 10px;
-  }
+    .button:hover {
+      background: #7656ee;
+      transform: translateY(-1px);
+    }
 
-  section {
-    padding: 40px 5%;
-  }
-}
-</style>
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      color: #aeb7cc;
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 35px;
+      text-align: center;
+      border-top: 1px solid #202943;
+      color: #69738d;
+      font-size: 14px;
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      color: #8e98b0;
+      padding: 40px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav a {
+        margin-left: 10px;
+      }
+
+      .hero {
+        padding: 65px 20px 50px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 40px 5%;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+      .card p {
+        min-height: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">Aivora</div>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Aivora</div>
 
-  <nav>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-<section class="hero">
 
-  <h1>Find the right <span>AI tool.</span></h1>
+  <!-- HERO -->
+  <section class="hero">
 
-  <p>
-    Explore useful AI tools for writing, images, video, music,
-    coding and productivity — all in one place.
-  </p>
-
-  <div class="search">
-    <input
-      id="search"
-      type="text"
-      placeholder="Search AI tools..."
-      onkeyup="searchTools()">
-  </div>
-
-</section>
-
-<div class="categories">
-
-  <button class="category" onclick="filterTools('all')">All</button>
-  <button class="category" onclick="filterTools('Writing')">Writing</button>
-  <button class="category" onclick="filterTools('Images')">Images</button>
-  <button class="category" onclick="filterTools('Video')">Video</button>
-  <button class="category" onclick="filterTools('Music')">Music</button>
-  <button class="category" onclick="filterTools('Coding')">Coding</button>
-
-</div>
-
-<section id="tools">
-
-  <div class="section-title">
-    <h2>AI Tools Directory</h2>
-    <p>Useful AI tools to explore.</p>
-  </div>
-
-  <div class="tools" id="toolGrid">
-
-    <div class="card" data-category="Writing">
-      <div class="icon">✍️</div>
-      <span class="tag">Writing</span>
-      <h3>ChatGPT</h3>
-      <p>AI assistant for writing, brainstorming, learning and everyday tasks.</p>
-      <a class="button" href="tools/chatgpt.html">View on Aivora →</a>
-    </div>
-
-    <div class="card" data-category="Images">
-      <div class="icon">🎨</div>
-      <span class="tag">Images</span>
-      <h3>Canva</h3>
-      <p>Create designs, presentations and visual content with AI-powered features.</p>
-      <a class="button" href="https://www.canva.com/" target="_blank">Visit Tool →</a>
-    </div>
-
-    <div class="card" data-category="Images">
-      <div class="icon">🖼️</div>
-      <span class="tag">Images</span>
-      <h3>Adobe Firefly</h3>
-      <p>Explore generative AI tools for creating and editing visual content.</p>
-      <a class="button" href="https://firefly.adobe.com/" target="_blank">Visit Tool →</a>
-    </div>
-
-    <div class="card" data-category="Video">
-      <div class="icon">🎬</div>
-      <span class="tag">Video</span>
-      <h3>Runway</h3>
-      <p>AI-powered tools for generating and editing creative video content.</p>
-      <a class="button" href="https://runwayml.com/" target="_blank">Visit Tool →</a>
-    </div>
-
-    <div class="card" data-category="Music">
-      <div class="icon">🎵</div>
-      <span class="tag">Music</span>
-      <h3>Suno</h3>
-      <p>Create songs and music using generative artificial intelligence.</p>
-      <a class="button" href="https://suno.com/" target="_blank">Visit Tool →</a>
-    </div>
-
-    <div class="card" data-category="Coding">
-      <div class="icon">💻</div>
-      <span class="tag">Coding</span>
-      <h3>GitHub Copilot</h3>
-      <p>AI assistance for developers while writing and understanding code.</p>
-      <a class="button" href="https://github.com/features/copilot" target="_blank">Visit Tool →</a>
-    </div>
-
-  </div>
-
-  <div class="no-results" id="noResults">
-    No AI tools found. Try another search.
-  </div>
-
-</section>
-
-<section id="about">
-
-  <div class="about">
-
-    <div class="section-title">
-      <h2>About Aivora</h2>
-    </div>
+    <h1>
+      Find the right <span>AI tool.</span>
+    </h1>
 
     <p>
-      Aivora is an independent AI discovery website helping beginners
-      find useful artificial intelligence tools without getting overwhelmed.
+      Explore useful AI tools for writing, images, video, music,
+      coding and productivity — all in one place.
     </p>
+
+    <div class="search">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search AI tools..."
+        autocomplete="off"
+      >
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+  <div class="categories">
+
+    <button class="category active" data-category="all">
+      All
+    </button>
+
+    <button class="category" data-category="Writing">
+      Writing
+    </button>
+
+    <button class="category" data-category="Images">
+      Images
+    </button>
+
+    <button class="category" data-category="Video">
+      Video
+    </button>
+
+    <button class="category" data-category="Music">
+      Music
+    </button>
+
+    <button class="category" data-category="Coding">
+      Coding
+    </button>
 
   </div>
 
-</section>
 
-<footer>
-  © 2026 Aivora — Discover. Create. Grow.
-</footer>
+  <!-- TOOLS -->
+  <section id="tools">
 
-<script>
+    <div class="section-title">
+      <h2>AI Tools Directory</h2>
+      <p>Useful AI tools to explore.</p>
+    </div>
 
-function searchTools() {
+    <div class="tools" id="toolGrid">
 
-  const query = document
-    .getElementById("search")
-    .value
-    .toLowerCase();
 
-  const cards = document.querySelectorAll(".card");
+      <!-- CHATGPT -->
+      <div
+        class="card"
+        data-category="Writing"
+        data-name="ChatGPT"
+      >
 
-  let visible = 0;
+        <div class="icon">✍️</div>
 
-  cards.forEach(card => {
+        <span class="tag">Writing</span>
 
-    const text = card.innerText.toLowerCase();
+        <h3>ChatGPT</h3>
 
-    if (text.includes(query)) {
-      card.style.display = "block";
-      visible++;
-    } else {
-      card.style.display = "none";
+        <p>
+          AI assistant for writing, brainstorming, learning
+          and everyday tasks.
+        </p>
+
+        <a
+          class="button"
+          href="https://chatgpt.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Tool →
+        </a>
+
+      </div>
+
+
+      <!-- CANVA -->
+      <div
+        class="card"
+        data-category="Images"
+        data-name="Canva"
+      >
+
+        <div class="icon">🎨</div>
+
+        <span class="tag">Images</span>
+
+        <h3>Canva</h3>
+
+        <p>
+          Create designs, presentations and visual content
+          with AI-powered features.
+        </p>
+
+        <a
+          class="button"
+          href="https://www.canva.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Tool →
+        </a>
+
+      </div>
+
+
+      <!-- ADOBE FIREFLY -->
+      <div
+        class="card"
+        data-category="Images"
+        data-name="Adobe Firefly"
+      >
+
+        <div class="icon">🖼️</div>
+
+        <span class="tag">Images</span>
+
+        <h3>Adobe Firefly</h3>
+
+        <p>
+          Explore generative AI tools for creating and
+          editing visual content.
+        </p>
+
+        <a
+          class="button"
+          href="https://firefly.adobe.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Tool →
+        </a>
+
+      </div>
+
+
+      <!-- RUNWAY -->
+      <div
+        class="card"
+        data-category="Video"
+        data-name="Runway"
+      >
+
+        <div class="icon">🎬</div>
+
+        <span class="tag">Video</span>
+
+        <h3>Runway</h3>
+
+        <p>
+          AI-powered tools for generating and editing
+          creative video content.
+        </p>
+
+        <a
+          class="button"
+          href="https://runwayml.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Tool →
+        </a>
+
+      </div>
+
+
+      <!-- SUNO -->
+      <div
+        class="card"
+        data-category="Music"
+        data-name="Suno"
+      >
+
+        <div class="icon">🎵</div>
+
+        <span class="tag">Music</span>
+
+        <h3>Suno</h3>
+
+        <p>
+          Create songs and music using generative
+          artificial intelligence.
+        </p>
+
+        <a
+          class="button"
+          href="https://suno.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Tool →
+        </a>
+
+      </div>
+
+
+      <!-- GITHUB COPILOT -->
+      <div
+        class="card"
+        data-category="Coding"
+        data-name="GitHub Copilot"
+      >
+
+        <div class="icon">💻</div>
+
+        <span class="tag">Coding</span>
+
+        <h3>GitHub Copilot</h3>
+
+        <p>
+          AI assistance for developers while writing
+          and understanding code.
+        </p>
+
+        <a
+          class="button"
+          href="https://github.com/features/copilot"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Tool →
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="noResults">
+      No AI tools found. Try another search.
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="about">
+
+      <div class="section-title">
+        <h2>About Aivora</h2>
+      </div>
+
+      <p>
+        Aivora is an independent AI discovery website helping
+        beginners find useful artificial intelligence tools
+        without getting overwhelmed.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Aivora — Discover. Create. Grow.
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const searchInput = document.getElementById("search");
+    const cards = document.querySelectorAll(".card");
+    const noResults = document.getElementById("noResults");
+    const categoryButtons = document.querySelectorAll(".category");
+
+    let selectedCategory = "all";
+
+
+    function updateTools() {
+
+      const query = searchInput.value
+        .trim()
+        .toLowerCase();
+
+      let visible = 0;
+
+
+      cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        const category =
+          card.dataset.category.toLowerCase();
+
+        const matchesSearch =
+          text.includes(query);
+
+        const matchesCategory =
+          selectedCategory === "all" ||
+          category === selectedCategory.toLowerCase();
+
+
+        if (matchesSearch && matchesCategory) {
+
+          card.style.display = "block";
+
+          visible++;
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+
+      if (visible === 0) {
+
+        noResults.style.display = "block";
+
+      } else {
+
+        noResults.style.display = "none";
+
+      }
+
     }
 
-  });
 
-  document.getElementById("noResults").style.display =
-    visible === 0 ? "block" : "none";
-}
+    searchInput.addEventListener("input", updateTools);
 
 
-function filterTools(category) {
+    categoryButtons.forEach(button => {
 
-  const cards = document.querySelectorAll(".card");
+      button.addEventListener("click", () => {
 
-  cards.forEach(card => {
+        selectedCategory =
+          button.dataset.category;
 
-    if (category === "all" ||
-        card.dataset.category === category) {
 
-      card.style.display = "block";
+        categoryButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
 
-    } else {
 
-      card.style.display = "none";
+        button.classList.add("active");
 
-    }
 
-  });
+        updateTools();
 
-  document.getElementById("search").value = "";
+      });
 
-  document.getElementById("noResults").style.display = "none";
-}
+    });
 
-</script>
+
+  </script>
 
 </body>
 </html>
