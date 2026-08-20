@@ -37,7 +37,7 @@
       border-bottom: 1px solid #202943;
       position: sticky;
       top: 0;
-      background: rgba(8, 13, 26, 0.95);
+      background: rgba(8, 13, 26, 0.96);
       backdrop-filter: blur(10px);
       z-index: 100;
     }
@@ -303,8 +303,8 @@
     </h1>
 
     <p>
-      Explore useful AI tools for writing, images, video, music,
-      coding and productivity — all in one place.
+      Explore useful AI tools for writing, images, video,
+      music, coding and productivity — all in one place.
     </p>
 
     <div class="search">
@@ -364,7 +364,6 @@
       <div
         class="card"
         data-category="Writing"
-        data-name="ChatGPT"
       >
 
         <div class="icon">✍️</div>
@@ -394,7 +393,6 @@
       <div
         class="card"
         data-category="Images"
-        data-name="Canva"
       >
 
         <div class="icon">🎨</div>
@@ -424,7 +422,6 @@
       <div
         class="card"
         data-category="Images"
-        data-name="Adobe Firefly"
       >
 
         <div class="icon">🖼️</div>
@@ -454,7 +451,6 @@
       <div
         class="card"
         data-category="Video"
-        data-name="Runway"
       >
 
         <div class="icon">🎬</div>
@@ -484,7 +480,6 @@
       <div
         class="card"
         data-category="Music"
-        data-name="Suno"
       >
 
         <div class="icon">🎵</div>
@@ -514,7 +509,6 @@
       <div
         class="card"
         data-category="Coding"
-        data-name="GitHub Copilot"
       >
 
         <div class="icon">💻</div>
@@ -544,7 +538,10 @@
 
 
     <!-- NO RESULTS -->
-    <div class="no-results" id="noResults">
+    <div
+      class="no-results"
+      id="noResults"
+    >
       No AI tools found. Try another search.
     </div>
 
@@ -580,41 +577,54 @@
   <!-- JAVASCRIPT -->
   <script>
 
-    const searchInput = document.getElementById("search");
-    const cards = document.querySelectorAll(".card");
-    const noResults = document.getElementById("noResults");
-    const categoryButtons = document.querySelectorAll(".category");
+    const searchInput =
+      document.getElementById("search");
+
+    const cards =
+      document.querySelectorAll(".card");
+
+    const noResults =
+      document.getElementById("noResults");
+
+    const categoryButtons =
+      document.querySelectorAll(".category");
+
 
     let selectedCategory = "all";
 
 
     function updateTools() {
 
-      const query = searchInput.value
-        .trim()
-        .toLowerCase();
+      const query =
+        searchInput.value.trim().toLowerCase();
 
       let visible = 0;
 
 
-      cards.forEach(card => {
+      cards.forEach(function(card) {
 
-        const text = card.innerText.toLowerCase();
+        const text =
+          card.innerText.toLowerCase();
 
         const category =
           card.dataset.category.toLowerCase();
 
+
         const matchesSearch =
           text.includes(query);
+
 
         const matchesCategory =
           selectedCategory === "all" ||
           category === selectedCategory.toLowerCase();
 
 
-        if (matchesSearch && matchesCategory) {
+        if (
+          matchesSearch &&
+          matchesCategory
+        ) {
 
-          card.style.display = "block";
+          card.style.display = "";
 
           visible++;
 
@@ -640,31 +650,42 @@
     }
 
 
-    searchInput.addEventListener("input", updateTools);
+    searchInput.addEventListener(
+      "input",
+      updateTools
+    );
 
 
-    categoryButtons.forEach(button => {
+    categoryButtons.forEach(function(button) {
 
-      button.addEventListener("click", () => {
+      button.addEventListener(
+        "click",
+        function() {
 
-        selectedCategory =
-          button.dataset.category;
-
-
-        categoryButtons.forEach(btn => {
-          btn.classList.remove("active");
-        });
+          selectedCategory =
+            button.dataset.category;
 
 
-        button.classList.add("active");
+          categoryButtons.forEach(
+            function(btn) {
+              btn.classList.remove("active");
+            }
+          );
 
 
-        updateTools();
+          button.classList.add("active");
 
-      });
+
+          updateTools();
+
+        }
+      );
 
     });
 
+
+    /* Make sure all tools are visible when the page loads */
+    updateTools();
 
   </script>
 
