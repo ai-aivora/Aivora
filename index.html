@@ -6,349 +6,316 @@
 <title>Aivora — AI Tools</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#07111f;
+color:white;
+min-height:100vh
 }
 
-html {
-  scroll-behavior: smooth;
+header{
+position:sticky;
+top:0;
+z-index:100;
+height:70px;
+padding:0 7%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:rgba(7,17,31,.94);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08)
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #07111f;
-  color: white;
-  min-height: 100vh;
+.logo{
+font-size:28px;
+font-weight:900;
+letter-spacing:-1px
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 70px;
-  padding: 0 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(7,17,31,.94);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+.logo span{color:#7c5cff}
+
+nav{
+display:flex;
+gap:22px
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: -1px;
+nav a{
+color:#b8c4d6;
+text-decoration:none;
+font-size:14px
 }
 
-.logo span {
-  color: #7c5cff;
+nav a:hover{color:white}
+
+.hero{
+text-align:center;
+padding:90px 20px 70px
 }
 
-nav {
-  display: flex;
-  gap: 22px;
+.badge{
+display:inline-block;
+padding:8px 15px;
+border-radius:30px;
+background:rgba(124,92,255,.12);
+border:1px solid rgba(124,92,255,.3);
+color:#bcaeff;
+font-size:13px;
+margin-bottom:25px
 }
 
-nav a {
-  color: #b8c4d6;
-  text-decoration: none;
-  font-size: 14px;
+.hero h1{
+font-size:clamp(45px,8vw,80px);
+line-height:.95;
+letter-spacing:-3px;
+margin-bottom:25px
 }
 
-nav a:hover {
-  color: white;
+.hero h1 span{color:#7c5cff}
+
+.hero p{
+max-width:680px;
+margin:auto;
+color:#9eacc0;
+font-size:18px;
+line-height:1.7
 }
 
-.hero {
-  text-align: center;
-  padding: 90px 20px 70px;
+.hero-button{
+display:inline-block;
+margin-top:30px;
+padding:14px 25px;
+border-radius:12px;
+background:#7c5cff;
+color:white;
+text-decoration:none;
+font-weight:bold
 }
 
-.badge {
-  display: inline-block;
-  padding: 8px 15px;
-  border-radius: 30px;
-  background: rgba(124,92,255,.12);
-  border: 1px solid rgba(124,92,255,.3);
-  color: #bcaeff;
-  font-size: 13px;
-  margin-bottom: 25px;
+.hero-button:hover{background:#6948f0}
+
+.section{
+width:90%;
+max-width:1150px;
+margin:0 auto 80px
 }
 
-.hero h1 {
-  font-size: clamp(45px, 8vw, 80px);
-  line-height: .95;
-  letter-spacing: -3px;
-  margin-bottom: 25px;
+.section-title{
+text-align:center;
+margin-bottom:35px
 }
 
-.hero h1 span {
-  color: #7c5cff;
+.section-title h2{
+font-size:34px;
+margin-bottom:10px
 }
 
-.hero p {
-  max-width: 680px;
-  margin: auto;
-  color: #9eacc0;
-  font-size: 18px;
-  line-height: 1.7;
+.section-title p{color:#8190a6}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px
 }
 
-.hero-button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 25px;
-  border-radius: 12px;
-  background: #7c5cff;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+.card{
+background:linear-gradient(145deg,#0d1b2d,#091321);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:27px;
+transition:.25s
 }
 
-.hero-button:hover {
-  background: #6948f0;
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(124,92,255,.6);
+box-shadow:0 20px 50px rgba(0,0,0,.25)
 }
 
-.section {
-  width: 90%;
-  max-width: 1150px;
-  margin: 0 auto 80px;
+.icon{
+font-size:38px;
+margin-bottom:20px
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 35px;
+.card h3{
+font-size:20px;
+margin-bottom:10px
 }
 
-.section-title h2 {
-  font-size: 34px;
-  margin-bottom: 10px;
+.card p{
+color:#91a0b5;
+font-size:14px;
+line-height:1.6;
+min-height:70px;
+margin-bottom:20px
 }
 
-.section-title p {
-  color: #8190a6;
+.button{
+display:block;
+width:100%;
+padding:12px;
+border:none;
+border-radius:11px;
+background:#7c5cff;
+color:white;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
+cursor:pointer
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+.button:hover{background:#6948f0}
+
+.about{
+max-width:750px;
+margin:auto;
+text-align:center
 }
 
-.card {
-  background: linear-gradient(145deg, #0d1b2d, #091321);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 20px;
-  padding: 27px;
-  transition: .25s;
+.about p{
+color:#91a0b5;
+line-height:1.8
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(124,92,255,.6);
-  box-shadow: 0 20px 50px rgba(0,0,0,.25);
+footer{
+text-align:center;
+padding:35px 20px;
+border-top:1px solid rgba(255,255,255,.07);
+color:#64748b;
+font-size:13px
 }
-
-.icon {
-  font-size: 38px;
-  margin-bottom: 20px;
-}
-
-.card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #91a0b5;
-  font-size: 14px;
-  line-height: 1.6;
-  min-height: 70px;
-  margin-bottom: 20px;
-}
-
-.button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 11px;
-  background: #7c5cff;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: #6948f0;
-}
-
-.about {
-  max-width: 750px;
-  margin: auto;
-  text-align: center;
-}
-
-.about p {
-  color: #91a0b5;
-  line-height: 1.8;
-}
-
-footer {
-  text-align: center;
-  padding: 35px 20px;
-  border-top: 1px solid rgba(255,255,255,.07);
-  color: #64748b;
-  font-size: 13px;
-}
-
 
 /* WRITING STUDIO */
 
-.writer-section {
-  display: none;
-  width: 90%;
-  max-width: 950px;
-  margin: 50px auto 80px;
+.writer-section{
+display:none;
+width:90%;
+max-width:950px;
+margin:50px auto 80px
 }
 
-.writer-header {
-  text-align: center;
-  margin-bottom: 30px;
+.writer-header{
+text-align:center;
+margin-bottom:30px
 }
 
-.writer-header h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
+.writer-header h2{
+font-size:40px;
+margin-bottom:10px
 }
 
-.writer-header h2 span {
-  color: #7c5cff;
+.writer-header h2 span{color:#7c5cff}
+
+.writer-header p{color:#91a0b5}
+
+.writer-box{
+background:#0b1728;
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+padding:25px
 }
 
-.writer-header p {
-  color: #91a0b5;
+.field{margin-bottom:20px}
+
+.field label{
+display:block;
+margin-bottom:8px;
+font-size:14px;
+font-weight:bold;
+color:#dbe5f2
 }
 
-.writer-box {
-  background: #0b1728;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 22px;
-  padding: 25px;
+select,textarea{
+width:100%;
+background:#07111f;
+color:white;
+border:1px solid rgba(255,255,255,.12);
+border-radius:12px;
+padding:14px;
+font-family:inherit;
+outline:none
 }
 
-.field {
-  margin-bottom: 20px;
+select:focus,textarea:focus{
+border-color:#7c5cff
 }
 
-.field label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #dbe5f2;
+textarea{
+min-height:170px;
+resize:vertical;
+line-height:1.6
 }
 
-select,
-textarea {
-  width: 100%;
-  background: #07111f;
-  color: white;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-  padding: 14px;
-  font-family: inherit;
-  outline: none;
+.controls{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
 }
 
-select:focus,
-textarea:focus {
-  border-color: #7c5cff;
+.output{
+margin-top:25px;
+background:#07111f;
+border:1px solid rgba(255,255,255,.08);
+border-radius:15px;
+padding:20px;
+min-height:200px;
+color:#cbd5e1;
+line-height:1.7;
+white-space:pre-wrap
 }
 
-textarea {
-  min-height: 170px;
-  resize: vertical;
-  line-height: 1.6;
+.output-title{
+color:white;
+font-weight:bold;
+margin-bottom:12px
 }
 
-.controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+.output-actions{
+display:none;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px
 }
 
-.generate {
-  margin-top: 5px;
+.secondary{background:#172338}
+
+.back-button{
+margin-top:20px;
+background:#172338
 }
 
-.output {
-  margin-top: 25px;
-  background: #07111f;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 15px;
-  padding: 20px;
-  min-height: 200px;
-  color: #cbd5e1;
-  line-height: 1.7;
-  white-space: pre-wrap;
+.status{
+font-size:12px;
+color:#64748b;
+margin-top:12px;
+text-align:center
 }
-
-.output-title {
-  color: white;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.output-actions {
-  display: none;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.secondary {
-  background: #172338;
-}
-
-.back-button {
-  margin-top: 20px;
-  background: #172338;
-}
-
 
 /* MOBILE */
 
-@media (max-width: 650px) {
+@media(max-width:650px){
 
-  header {
-    padding: 0 5%;
-  }
+header{padding:0 5%}
 
-  nav {
-    gap: 12px;
-  }
+nav{gap:12px}
 
-  nav a {
-    font-size: 12px;
-  }
+nav a{font-size:12px}
 
-  .hero {
-    padding-top: 70px;
-  }
+.hero{padding-top:70px}
 
-  .hero h1 {
-    letter-spacing: -2px;
-  }
+.hero h1{letter-spacing:-2px}
 
-  .controls {
-    grid-template-columns: 1fr;
-  }
+.controls{
+grid-template-columns:1fr
+}
+
+.writer-header h2{
+font-size:32px
+}
 }
 </style>
 </head>
@@ -357,15 +324,15 @@ textarea {
 
 <header>
 
-  <div class="logo">
-    Ai<span>vora</span>
-  </div>
+<div class="logo">
+Ai<span>vora</span>
+</div>
 
-  <nav>
-    <a href="#" onclick="showHome()">Home</a>
-    <a href="#tools" onclick="showHome()">Tools</a>
-    <a href="#about" onclick="showHome()">About</a>
-  </nav>
+<nav>
+<a href="#" onclick="showHome()">Home</a>
+<a href="#tools" onclick="showHome()">Tools</a>
+<a href="#about" onclick="showHome()">About</a>
+</nav>
 
 </header>
 
@@ -376,217 +343,196 @@ textarea {
 
 <section class="hero">
 
-  <div class="badge">
-    ✨ Welcome to Aivora
-  </div>
+<div class="badge">
+✨ Welcome to Aivora
+</div>
 
-  <h1>
-    Explore the power of
-    <span>AI.</span>
-  </h1>
+<h1>
+Explore the power of
+<span>AI.</span>
+</h1>
 
-  <p>
-    Discover useful artificial intelligence tools
-    designed to help you create, learn, write and
-    explore new ideas.
-  </p>
+<p>
+Discover useful artificial intelligence tools
+designed to help you create, learn, write and
+explore new ideas.
+</p>
 
-  <a
-    href="#tools"
-    class="hero-button">
-    Explore AI Tools
-  </a>
+<a href="#tools" class="hero-button">
+Explore AI Tools
+</a>
 
 </section>
 
 
-<section
-  class="section"
-  id="tools">
+<section class="section" id="tools">
 
-  <div class="section-title">
+<div class="section-title">
 
-    <h2>AI Tools</h2>
+<h2>AI Tools</h2>
 
-    <p>
-      Everything in one simple place.
-    </p>
+<p>
+Everything in one simple place.
+</p>
 
-  </div>
+</div>
 
 
-  <div class="grid">
+<div class="grid">
 
 
-    <!-- CHAT -->
+<div class="card">
 
-    <div class="card">
+<div class="icon">🤖</div>
 
-      <div class="icon">🤖</div>
+<h3>Chat with AI</h3>
 
-      <h3>Chat with AI</h3>
+<p>
+Ask questions, brainstorm ideas,
+learn new things and chat with AI.
+</p>
 
-      <p>
-        Ask questions, brainstorm ideas,
-        learn new things and chat with AI.
-      </p>
+<a
+class="button"
+href="https://chatgpt.com/"
+target="_blank"
+rel="noopener noreferrer">
 
-      <a
-        class="button"
-        href="https://chatgpt.com/"
-        target="_blank"
-        rel="noopener noreferrer">
+Open ChatGPT
 
-        Open ChatGPT
+</a>
 
-      </a>
+</div>
 
-    </div>
 
+<div class="card">
 
-    <!-- WRITING -->
+<div class="icon">✍🏿</div>
 
-    <div class="card">
+<h3>AI Writing</h3>
 
-      <div class="icon">✍🏿</div>
+<p>
+Create articles, captions, stories,
+emails and creative ideas.
+</p>
 
-      <h3>AI Writing</h3>
+<button
+class="button"
+onclick="showWriter()">
 
-      <p>
-        Create articles, captions, stories,
-        emails and creative ideas.
-      </p>
+Open Writing Studio
 
-      <button
-        class="button"
-        onclick="showWriter()">
+</button>
 
-        Open Writing Studio
+</div>
 
-      </button>
 
-    </div>
+<div class="card">
 
+<div class="icon">🎨</div>
 
-    <!-- IMAGES -->
+<h3>AI Images</h3>
 
-    <div class="card">
+<p>
+Explore AI-powered image creation
+and visual creativity.
+</p>
 
-      <div class="icon">🎨</div>
+<button
+class="button"
+onclick="comingSoon('AI Images')">
 
-      <h3>AI Images</h3>
+Coming Soon
 
-      <p>
-        Explore AI-powered image creation
-        and visual creativity.
-      </p>
+</button>
 
-      <button
-        class="button"
-        onclick="comingSoon('AI Images')">
+</div>
 
-        Coming Soon
 
-      </button>
+<div class="card">
 
-    </div>
+<div class="icon">💻</div>
 
+<h3>AI Coding</h3>
 
-    <!-- CODING -->
+<p>
+Learn programming and get help
+understanding code.
+</p>
 
-    <div class="card">
+<button
+class="button"
+onclick="comingSoon('AI Coding')">
 
-      <div class="icon">💻</div>
+Coming Soon
 
-      <h3>AI Coding</h3>
+</button>
 
-      <p>
-        Learn programming and get help
-        understanding code.
-      </p>
+</div>
 
-      <button
-        class="button"
-        onclick="comingSoon('AI Coding')">
 
-        Coming Soon
+<div class="card">
 
-      </button>
+<div class="icon">📚</div>
 
-    </div>
+<h3>AI Study</h3>
 
+<p>
+Make studying easier with explanations,
+summaries and learning tools.
+</p>
 
-    <!-- STUDY -->
+<button
+class="button"
+onclick="comingSoon('AI Study')">
 
-    <div class="card">
+Coming Soon
 
-      <div class="icon">📚</div>
+</button>
 
-      <h3>AI Study</h3>
+</div>
 
-      <p>
-        Make studying easier with explanations,
-        summaries and learning tools.
-      </p>
 
-      <button
-        class="button"
-        onclick="comingSoon('AI Study')">
+<div class="card">
 
-        Coming Soon
+<div class="icon">🎵</div>
 
-      </button>
+<h3>AI Music</h3>
 
-    </div>
+<p>
+Explore songwriting, lyrics,
+music ideas and creativity.
+</p>
 
+<button
+class="button"
+onclick="comingSoon('AI Music')">
 
-    <!-- MUSIC -->
+Coming Soon
 
-    <div class="card">
+</button>
 
-      <div class="icon">🎵</div>
+</div>
 
-      <h3>AI Music</h3>
-
-      <p>
-        Explore songwriting, lyrics,
-        music ideas and creativity.
-      </p>
-
-      <button
-        class="button"
-        onclick="comingSoon('AI Music')">
-
-        Coming Soon
-
-      </button>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
 
 
-<section
-  class="section"
-  id="about">
+<section class="section" id="about">
 
-  <div class="section-title">
+<div class="section-title">
+<h2>About Aivora</h2>
+</div>
 
-    <h2>About Aivora</h2>
+<div class="about">
 
-  </div>
+<p>
+Aivora is a growing AI discovery platform
+designed to bring useful artificial intelligence
+tools together in one simple place.
+</p>
 
-  <div class="about">
-
-    <p>
-      Aivora is a growing AI discovery platform
-      designed to bring useful artificial intelligence
-      tools together in one simple place.
-    </p>
-
-  </div>
+</div>
 
 </section>
 
@@ -595,180 +541,157 @@ textarea {
 
 <!-- WRITING STUDIO -->
 
-<section
-  class="writer-section"
-  id="writingStudio">
+<section class="writer-section" id="writingStudio">
 
-  <div class="writer-header">
+<div class="writer-header">
 
-    <h2>
-      Aivora <span>Writing</span>
-    </h2>
+<h2>
+Aivora <span>Writing</span>
+</h2>
 
-    <p>
-      Turn your ideas into better writing.
-    </p>
+<p>
+Turn your ideas into better writing.
+</p>
 
-  </div>
+</div>
 
 
-  <div class="writer-box">
+<div class="writer-box">
 
 
-    <div class="field">
+<div class="field">
 
-      <label>
-        What are you writing?
-      </label>
+<label>What are you writing?</label>
 
-      <select id="writingType">
+<select id="writingType">
 
-        <option>Article</option>
+<option>Article</option>
+<option>Social Media Caption</option>
+<option>Email</option>
+<option>Story</option>
+<option>Song Lyrics</option>
+<option>Business Idea</option>
+<option>Product Description</option>
+<option>Blog Post</option>
 
-        <option>Social Media Caption</option>
+</select>
 
-        <option>Email</option>
+</div>
 
-        <option>Story</option>
 
-        <option>Song Lyrics</option>
+<div class="controls">
 
-        <option>Business Idea</option>
+<div class="field">
 
-        <option>Product Description</option>
+<label>Tone</label>
 
-        <option>Blog Post</option>
+<select id="writingTone">
 
-      </select>
+<option>Professional</option>
+<option>Friendly</option>
+<option>Casual</option>
+<option>Inspirational</option>
+<option>Creative</option>
+<option>Funny</option>
 
-    </div>
+</select>
 
+</div>
 
-    <div class="controls">
 
-      <div class="field">
+<div class="field">
 
-        <label>
-          Tone
-        </label>
+<label>Length</label>
 
-        <select id="writingTone">
+<select id="writingLength">
 
-          <option>Professional</option>
+<option>Short</option>
+<option>Medium</option>
+<option>Long</option>
 
-          <option>Friendly</option>
+</select>
 
-          <option>Casual</option>
+</div>
 
-          <option>Inspirational</option>
+</div>
 
-          <option>Creative</option>
 
-          <option>Funny</option>
+<div class="field">
 
-        </select>
+<label>Your topic or instructions</label>
 
-      </div>
+<textarea
+id="writingPrompt"
+placeholder="Example: Write a motivational post about a young person starting their first business..."></textarea>
 
+</div>
 
-      <div class="field">
 
-        <label>
-          Length
-        </label>
+<button
+class="button"
+onclick="generateWriting()">
 
-        <select id="writingLength">
+✨ Generate Writing
 
-          <option>Short</option>
+</button>
 
-          <option>Medium</option>
 
-          <option>Long</option>
+<div class="output" id="writingOutput">
 
-        </select>
+<div class="output-title">
+Your writing will appear here
+</div>
 
-      </div>
+<div>
+Enter your idea above and click
+"Generate Writing".
+</div>
 
-    </div>
+</div>
 
 
-    <div class="field">
+<div class="output-actions" id="outputActions">
 
-      <label>
-        Your topic or instructions
-      </label>
+<button
+class="button secondary"
+onclick="copyWriting()">
 
-      <textarea
-        id="writingPrompt"
-        placeholder="Example: Write a motivational social media caption about never giving up..."></textarea>
+📋 Copy
 
-    </div>
+</button>
 
+<button
+class="button secondary"
+onclick="clearWriting()">
 
-    <button
-      class="button generate"
-      onclick="generateWriting()">
+🗑️ Clear
 
-      ✨ Generate Writing
+</button>
 
-    </button>
+</div>
 
 
-    <div
-      class="output"
-      id="writingOutput">
+<div class="status">
+Free browser mode • No API key required
+</div>
 
-      <div class="output-title">
-        Your writing will appear here
-      </div>
 
-      <div>
-        Enter your idea above and click
-        "Generate Writing".
-      </div>
+<button
+class="button back-button"
+onclick="showHome()">
 
-    </div>
+← Back to Aivora
 
+</button>
 
-    <div
-      class="output-actions"
-      id="outputActions">
-
-      <button
-        class="button secondary"
-        onclick="copyWriting()">
-
-        📋 Copy
-
-      </button>
-
-      <button
-        class="button secondary"
-        onclick="clearWriting()">
-
-        🗑️ Clear
-
-      </button>
-
-    </div>
-
-
-    <button
-      class="button back-button"
-      onclick="showHome()">
-
-      ← Back to Aivora
-
-    </button>
-
-  </div>
+</div>
 
 </section>
 
 
 <footer>
 
-  © 2026 Aivora — AI for Everyone
+© 2026 Aivora — AI for Everyone
 
 </footer>
 
@@ -776,156 +699,491 @@ textarea {
 <script>
 
 /* =========================================================
-   SHOW WRITING STUDIO
+   NAVIGATION
 ========================================================= */
 
-function showWriter() {
+function showWriter(){
 
-  document.getElementById(
-    "homePage"
-  ).style.display = "none";
+document.getElementById("homePage").style.display="none";
 
-  document.getElementById(
-    "writingStudio"
-  ).style.display = "block";
+document.getElementById("writingStudio").style.display="block";
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function showHome(){
+
+document.getElementById("homePage").style.display="block";
+
+document.getElementById("writingStudio").style.display="none";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
 /* =========================================================
-   SHOW HOME
+   WRITING ENGINE
 ========================================================= */
 
-function showHome() {
+function generateWriting(){
 
-  document.getElementById(
-    "homePage"
-  ).style.display = "block";
+const type=document.getElementById("writingType").value;
+const tone=document.getElementById("writingTone").value;
+const length=document.getElementById("writingLength").value;
+const prompt=document.getElementById("writingPrompt").value.trim();
 
-  document.getElementById(
-    "writingStudio"
-  ).style.display = "none";
+const output=document.getElementById("writingOutput");
+const actions=document.getElementById("outputActions");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+if(!prompt){
+
+output.innerHTML=`
+<div class="output-title">
+✍🏿 Give Aivora an idea first
+</div>
+
+<div>
+Tell Aivora what you want to write about.
+</div>
+`;
+
+actions.style.display="none";
+return;
+}
+
+output.innerHTML=`
+<div class="output-title">
+✨ Aivora is writing...
+</div>
+
+<div>
+Creating your ${type.toLowerCase()}...
+</div>
+`;
+
+setTimeout(function(){
+
+let result="";
+
+const topic=prompt.charAt(0).toUpperCase()+prompt.slice(1);
+
+if(type==="Social Media Caption"){
+
+result=createCaption(topic,tone,length);
+
+}
+
+else if(type==="Email"){
+
+result=createEmail(topic,tone,length);
+
+}
+
+else if(type==="Song Lyrics"){
+
+result=createLyrics(topic,tone,length);
+
+}
+
+else if(type==="Story"){
+
+result=createStory(topic,tone,length);
+
+}
+
+else if(type==="Business Idea"){
+
+result=createBusiness(topic,tone,length);
+
+}
+
+else if(type==="Product Description"){
+
+result=createProduct(topic,tone,length);
+
+}
+
+else{
+
+result=createArticle(topic,tone,length);
+
+}
+
+
+output.innerHTML=`
+<div class="output-title">
+✨ Aivora Writing Result
+</div>
+
+<div>${escapeHTML(result)}</div>
+
+<br>
+
+<div style="color:#64748b;font-size:12px;">
+Free mode • ${escapeHTML(type)}
+• ${escapeHTML(tone)}
+• ${escapeHTML(length)}
+</div>
+`;
+
+actions.style.display="grid";
+
+},500);
 
 }
 
 
 /* =========================================================
-   GENERATE WRITING
+   CAPTION
 ========================================================= */
 
-function generateWriting() {
+function createCaption(topic,tone,length){
 
-  const type =
-    document.getElementById(
-      "writingType"
-    ).value;
+if(length==="Short"){
 
-  const tone =
-    document.getElementById(
-      "writingTone"
-    ).value;
+return `✨ ${topic}
 
-  const length =
-    document.getElementById(
-      "writingLength"
-    ).value;
+Small steps can lead to big results.
 
-  const prompt =
-    document.getElementById(
-      "writingPrompt"
-    ).value.trim();
+Believe in the process. Keep moving forward.
 
-  const output =
-    document.getElementById(
-      "writingOutput"
-    );
+#Aivora #Motivation #Growth`;
 
-  const actions =
-    document.getElementById(
-      "outputActions"
-    );
+}
 
+if(length==="Long"){
 
-  if (!prompt) {
+return `✨ ${topic}
 
-    output.innerHTML = `
+Every journey starts with an idea.
 
-      <div class="output-title">
-        ✍🏿 Give Aivora an idea first
-      </div>
+Sometimes the beginning feels uncertain. Sometimes progress feels slow. But every step teaches us something valuable.
 
-      <div>
-        Enter your topic or instructions
-        in the box above.
-      </div>
+The important thing is to keep learning, keep improving and keep moving forward.
 
-    `;
+Your story is still being written. Make the next chapter count.
 
-    actions.style.display =
-      "none";
+#Aivora #Motivation #Success #Growth`;
 
-    return;
-  }
+}
+
+return `✨ ${topic}
+
+Great things often begin with one small decision.
+
+Keep learning. Keep building. Keep believing in what you're capable of.
+
+Your progress may be slow, but it is still progress.
+
+#Aivora #KeepGoing #Growth`;
+
+}
 
 
-  /*
-    FREE DEMO MODE
+/* =========================================================
+   EMAIL
+========================================================= */
 
-    This creates a useful writing
-    template without calling a paid API.
-  */
+function createEmail(topic,tone,length){
 
-  let result = "";
+const greeting=tone==="Friendly"||tone==="Casual"
+?"Hi,"
+:"Hello,";
 
+if(length==="Short"){
 
-  if (type === "Social Media Caption") {
+return `Subject: ${topic}
 
-    result =
-`✨ ${prompt}
+${greeting}
 
-Keep going. Keep believing. Keep building.
+I’m reaching out regarding ${topic.toLowerCase()}.
 
-Every step forward matters, even when the progress feels small.
+I’d appreciate your thoughts and would be happy to discuss the next steps.
 
-#Motivation #Aivora #KeepGoing`;
+Best regards`;
 
-  }
+}
 
-  else if (type === "Email") {
+if(length==="Long"){
 
-    result =
-`Subject: ${prompt}
+return `Subject: ${topic}
 
-Hello,
+${greeting}
 
 I hope you're doing well.
 
-I’m reaching out regarding ${prompt.toLowerCase()}.
+I’m reaching out to discuss ${topic.toLowerCase()}.
 
-I wanted to share this with you and start a conversation about the next steps.
+I wanted to share some thoughts and open a conversation about the opportunity, the goals involved and the possible next steps.
+
+I believe this could be a valuable opportunity, and I would appreciate hearing your perspective.
+
+Please let me know a convenient time to continue the discussion.
+
+Thank you for your time and consideration.
+
+Best regards`;
+
+}
+
+return `Subject: ${topic}
+
+${greeting}
+
+I’m reaching out regarding ${topic.toLowerCase()}.
+
+I wanted to share this with you and discuss the possible next steps.
 
 Please let me know what you think.
 
 Best regards`;
 
-  }
 
-  else if (type === "Song Lyrics") {
+}
 
-    result =
-`[Verse 1]
 
-${prompt}
+/* =========================================================
+   ARTICLES / BLOGS
+========================================================= */
+
+function createArticle(topic,tone,length){
+
+if(length==="Short"){
+
+return `${topic}
+
+Introduction
+
+${topic} is a subject that deserves attention because it can create opportunities, challenges and valuable lessons.
+
+Why It Matters
+
+Understanding this topic can help people make better decisions and take practical action.
+
+Conclusion
+
+With the right knowledge and mindset, ${topic.toLowerCase()} can become an opportunity for growth.`;
+
+}
+
+if(length==="Long"){
+
+return `${topic}
+
+Introduction
+
+${topic} is an important subject that can affect the way people think, work and make decisions.
+
+Understanding the Topic
+
+Before taking action, it is important to understand the basic ideas behind ${topic.toLowerCase()}. A clear understanding helps people identify opportunities while also recognizing possible challenges.
+
+Why It Matters
+
+One of the biggest benefits of learning about ${topic.toLowerCase()} is the ability to make more informed decisions.
+
+Practical Steps
+
+Start by learning the fundamentals. Research different perspectives, identify realistic goals and begin with small steps.
+
+Lessons
+
+Progress does not always happen immediately. Consistency, patience and willingness to learn can make a major difference.
+
+Conclusion
+
+Ultimately, ${topic.toLowerCase()} is worth exploring. With curiosity, preparation and action, people can turn knowledge into meaningful progress.`;
+
+}
+
+return `${topic}
+
+Introduction
+
+${topic} is an interesting subject that deserves attention.
+
+Why It Matters
+
+Learning about this topic can help people understand new opportunities, challenges and possible solutions.
+
+Key Ideas
+
+A good starting point is to understand the basics, consider different perspectives and focus on practical actions.
+
+Conclusion
+
+With the right knowledge and approach, ${topic.toLowerCase()} can become an opportunity for growth and creativity.`;
+
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+function createStory(topic,tone,length){
+
+if(length==="Short"){
+
+return `Title: ${topic}
+
+The idea began with a simple decision.
+
+There was no guarantee of success, but there was a reason to try.
+
+Step by step, the journey continued.
+
+And that first small decision became the beginning of something much bigger.`;
+
+}
+
+if(length==="Long"){
+
+return `Title: ${topic}
+
+Chapter One — The Beginning
+
+It started with an idea.
+
+At first, ${topic.toLowerCase()} seemed difficult. There were questions, doubts and moments when giving up seemed easier.
+
+But the desire to create something meaningful was stronger.
+
+Chapter Two — The Challenge
+
+The journey was not simple. Mistakes happened, plans changed and progress sometimes seemed invisible.
+
+Still, every challenge provided a lesson.
+
+Chapter Three — Moving Forward
+
+Instead of waiting for everything to become perfect, the decision was made to keep moving.
+
+One small step became another.
+
+The future was still uncertain, but now there was something more important: confidence.
+
+Conclusion
+
+Every great journey begins somewhere.
+
+Sometimes all it takes is the courage to begin.`;
+
+}
+
+return `Title: ${topic}
+
+The journey began with a simple idea.
+
+Nobody knew exactly where it would lead, but there was a feeling that it was worth trying.
+
+The road was not always easy. There were challenges, mistakes and moments of doubt.
+
+But every challenge became a lesson.
+
+Eventually, the small idea started becoming something real.
+
+And sometimes the biggest adventures begin with the smallest decision to simply start.`;
+
+
+}
+
+
+/* =========================================================
+   SONG LYRICS
+========================================================= */
+
+function createLyrics(topic,tone,length){
+
+if(length==="Short"){
+
+return `[Verse]
+
+${topic}
+
+I keep moving forward,
+Even when the road gets hard,
+I believe in something better,
+I know I can go far.
+
+[Chorus]
+
+I'm still standing,
+I'm still dreaming,
+I'm still reaching for the sky.
+
+No matter what comes,
+I keep believing,
+I was made to rise.`;
+
+}
+
+if(length==="Long"){
+
+return `[Verse 1]
+
+${topic}
+
+I started with a dream,
+With nothing in my hands,
+I didn't know the road ahead,
+But I decided I would stand.
+
+[Pre-Chorus]
+
+Every setback taught me,
+Every failure made me strong,
+I kept walking through the darkness,
+Knowing I would carry on.
+
+[Chorus]
+
+I'm still standing,
+I'm still dreaming,
+I'm still reaching for the sky.
+
+No matter what comes,
+I keep believing,
+I was made to rise.
+
+[Verse 2]
+
+The road may not be easy,
+And the night may feel so long,
+But every little heartbeat
+Keeps reminding me I'm strong.
+
+[Bridge]
+
+One day I'll look behind me,
+And understand the pain,
+Every step became a lesson,
+Every storm became my rain.
+
+[Chorus]
+
+I'm still standing,
+I'm still dreaming,
+I'm still reaching for the sky.
+
+No matter what comes,
+I keep believing,
+I was made to rise.`;
+
+}
+
+return `[Verse 1]
+
+${topic}
 
 I keep moving forward,
 Even when the road gets hard,
@@ -940,122 +1198,90 @@ I'm still reaching for the sky.
 
 No matter what comes,
 I keep believing,
-I was made to rise.`;
+I was made to rise.
 
-  }
+[Verse 2]
 
-  else if (type === "Story") {
+Every setback is a lesson,
+Every challenge makes me strong,
+I may stumble on the journey,
+But I'll keep moving on.`;
 
-    result =
-`Title: ${prompt}
+}
 
-The journey began with a simple idea.
 
-Nobody knew exactly where it would lead, but one thing was certain: giving up was not an option.
+/* =========================================================
+   BUSINESS
+========================================================= */
 
-With courage, patience and determination, the next chapter slowly began to unfold.
+function createBusiness(topic,tone,length){
 
-And sometimes, the biggest adventures begin with the smallest decision to simply start.`;
+return `Business Idea: ${topic}
 
-  }
+Problem
 
-  else if (type === "Article" ||
-           type === "Blog Post") {
+Identify a real problem connected to ${topic.toLowerCase()} that people regularly experience.
 
-    result =
-`${prompt}
+Solution
 
-Introduction
-
-${prompt} is an interesting topic that deserves attention.
-
-Understanding the subject can help people make better decisions, discover new opportunities and see the world from a different perspective.
-
-Why It Matters
-
-There are many reasons why this topic is important. Learning more about it can provide useful knowledge and inspire people to take meaningful action.
-
-Key Ideas
-
-The most important thing is to start with a clear understanding of the subject, consider different perspectives and focus on practical solutions.
-
-Conclusion
-
-Ultimately, ${prompt.toLowerCase()} is a topic worth exploring further. With the right knowledge and approach, it can become an opportunity for growth and creativity.`;
-
-  }
-
-  else if (type === "Business Idea") {
-
-    result =
-`Business Idea: ${prompt}
-
-Concept
-
-Create a simple and useful business focused on solving a real problem related to ${prompt}.
+Create a simple product or service that makes this problem easier, faster or cheaper to solve.
 
 Target Customers
 
-People who need practical, affordable and convenient solutions.
+Focus on people who experience the problem frequently and are willing to pay for a useful solution.
 
 Value
 
-The business should make life easier, save time or provide something customers cannot easily get elsewhere.
+The business should save customers time, money or effort while providing a clear benefit.
 
-Next Step
+How It Could Make Money
 
-Start small, test the idea with real users and improve the service based on their feedback.`;
+Possible revenue could come from direct sales, subscriptions, service fees, partnerships or commissions.
 
-  }
+First Steps
 
-  else if (type === "Product Description") {
+1. Research the problem.
+2. Talk to potential customers.
+3. Build a simple version.
+4. Test it.
+5. Improve it based on feedback.
 
-    result =
-`${prompt}
+Goal
 
-Discover a product designed to make everyday life easier.
+Start small, learn from real customers and grow gradually.`;
 
-Key Benefits:
 
-• Simple and practical
-• Designed for convenience
+}
+
+
+/* =========================================================
+   PRODUCT
+========================================================= */
+
+function createProduct(topic,tone,length){
+
+return `${topic}
+
+Discover a practical solution designed around real customer needs.
+
+Key Benefits
+
+• Simple and convenient
 • Easy to use
-• Built around customer needs
+• Designed for everyday needs
+• Focused on customer experience
+• Practical and accessible
 
-Whether you're looking for quality, convenience or a better experience, ${prompt.toLowerCase()} offers a solution worth exploring.`;
+Why Choose It?
 
-  }
+${topic} is designed to provide a straightforward experience without unnecessary complexity.
 
+Perfect For
 
-  output.innerHTML = `
+People looking for a convenient and reliable solution.
 
-    <div class="output-title">
-      ✨ Aivora Writing Result
-    </div>
+Get started today and discover a simpler way to approach your needs.`;
 
-    <div>
-      ${escapeHTML(result)}
-    </div>
-
-    <br>
-
-    <div style="color:#64748b;font-size:12px;">
-      Demo mode • Tone: ${escapeHTML(tone)}
-      • Length: ${escapeHTML(length)}
-    </div>
-
-  `;
-
-
-  actions.style.display =
-    "grid";
-
-
-  window.scrollTo({
-    top:
-      document.body.scrollHeight,
-    behavior: "smooth"
-  });
 
 }
 
@@ -1064,23 +1290,23 @@ Whether you're looking for quality, convenience or a better experience, ${prompt
    COPY
 ========================================================= */
 
-function copyWriting() {
+async function copyWriting(){
 
-  const output =
-    document.getElementById(
-      "writingOutput"
-    );
+const output=document.getElementById("writingOutput");
 
-  const text =
-    output.innerText;
+const text=output.innerText;
 
-  navigator.clipboard.writeText(
-    text
-  );
+try{
 
-  alert(
-    "✅ Writing copied!"
-  );
+await navigator.clipboard.writeText(text);
+
+alert("✅ Writing copied!");
+
+}catch(error){
+
+alert("Please select and copy the text manually.");
+
+}
 
 }
 
@@ -1089,31 +1315,22 @@ function copyWriting() {
    CLEAR
 ========================================================= */
 
-function clearWriting() {
+function clearWriting(){
 
-  document.getElementById(
-    "writingPrompt"
-  ).value = "";
+document.getElementById("writingPrompt").value="";
 
-  document.getElementById(
-    "writingOutput"
-  ).innerHTML = `
+document.getElementById("writingOutput").innerHTML=`
+<div class="output-title">
+Your writing will appear here
+</div>
 
-    <div class="output-title">
-      Your writing will appear here
-    </div>
+<div>
+Enter your idea above and click
+"Generate Writing".
+</div>
+`;
 
-    <div>
-      Enter your idea above and click
-      "Generate Writing".
-    </div>
-
-  `;
-
-  document.getElementById(
-    "outputActions"
-  ).style.display =
-    "none";
+document.getElementById("outputActions").style.display="none";
 
 }
 
@@ -1122,13 +1339,11 @@ function clearWriting() {
    COMING SOON
 ========================================================= */
 
-function comingSoon(tool) {
+function comingSoon(tool){
 
-  alert(
-    "🚀 " +
-    tool +
-    " is coming soon to Aivora!"
-  );
+alert(
+"🚀 "+tool+" is coming soon to Aivora!"
+);
 
 }
 
@@ -1137,14 +1352,14 @@ function comingSoon(tool) {
    SECURITY
 ========================================================= */
 
-function escapeHTML(text) {
+function escapeHTML(text){
 
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+return text
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
