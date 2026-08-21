@@ -1,365 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Aivora — Discover the Best AI Tools</title>
-
-  <meta
-    name="description"
-    content="Aivora helps you discover useful AI tools for writing, images, video, music, coding and productivity."
-  >
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #080d1a;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding: 18px 7%;
-
-      background: rgba(8, 13, 26, 0.96);
-      border-bottom: 1px solid #202943;
-
-      backdrop-filter: blur(12px);
-    }
-
-    .logo {
-      font-size: 29px;
-      font-weight: 800;
-      color: #8b6cff;
-      letter-spacing: -1px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aivora — AI Tools</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #07111f;
+  color: white;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  height: 70px;
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(7,17,31,.92);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: #7c5cff;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #b8c4d6;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 90px 20px 70px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 30px;
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 22px;
-      font-size: 14px;
-      transition: 0.2s;
-    }
+  background: rgba(124,92,255,.12);
+  border: 1px solid rgba(124,92,255,.3);
 
-    nav a:hover {
-      color: #8b6cff;
-    }
+  color: #bcaeff;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
 
-    .hero {
-      text-align: center;
-      padding: 90px 20px 70px;
-      background:
-        radial-gradient(
-          circle at top,
-          #1b2750 0%,
-          #111a35 35%,
-          #080d1a 75%
-        );
-    }
+.hero h1 {
+  font-size: clamp(45px, 8vw, 80px);
+  line-height: .95;
+  letter-spacing: -3px;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #7c5cff;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: auto;
 
-    .hero h1 {
-      max-width: 850px;
-      margin: auto;
+  color: #9eacc0;
+  font-size: 18px;
+  line-height: 1.7;
+}
 
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1.05;
+.hero-button {
+  display: inline-block;
+  margin-top: 30px;
 
-      letter-spacing: -2px;
-    }
+  padding: 14px 25px;
 
-    .hero h1 span {
-      color: #8b6cff;
-    }
+  border-radius: 12px;
+  background: #7c5cff;
 
-    .hero p {
-      max-width: 680px;
-      margin: 22px auto 0;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-      color: #aeb7cc;
-      font-size: 18px;
-    }
+.hero-button:hover {
+  background: #6948f0;
+}
 
-    .search {
-      max-width: 680px;
-      margin: 32px auto 0;
-    }
+/* SECTION */
 
-    .search input {
-      width: 100%;
+.section {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto 80px;
+}
 
-      padding: 18px 20px;
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
 
-      border: 1px solid #303a58;
-      border-radius: 14px;
+.section-title h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
 
-      background: #11182b;
-      color: #fff;
+.section-title p {
+  color: #8190a6;
+}
 
-      outline: none;
+/* TOOLS */
 
-      font-size: 16px;
+.grid {
+  display: grid;
 
-      transition: 0.2s;
-    }
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
 
-    .search input:focus {
-      border-color: #8b6cff;
+  gap: 20px;
+}
 
-      box-shadow:
-        0 0 0 3px rgba(139, 108, 255, 0.15);
-    }
+.card {
+  background:
+    linear-gradient(
+      145deg,
+      #0d1b2d,
+      #091321
+    );
 
-    .search input::placeholder {
-      color: #69738d;
-    }
+  border: 1px solid rgba(255,255,255,.08);
 
-    .categories {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+  border-radius: 20px;
 
-      gap: 10px;
+  padding: 27px;
 
-      padding: 30px 7%;
-    }
+  transition: .25s;
+}
 
-    .category {
-      padding: 10px 17px;
+.card:hover {
+  transform: translateY(-6px);
 
-      border: 1px solid #303a58;
-      border-radius: 30px;
+  border-color:
+    rgba(124,92,255,.6);
 
-      background: #11182b;
-      color: #c4cbe0;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+}
 
-      cursor: pointer;
+.icon {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
 
-      font-size: 14px;
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 
-      transition: 0.2s;
-    }
+.card p {
+  color: #91a0b5;
+  font-size: 14px;
+  line-height: 1.6;
 
-    .category:hover,
-    .category.active {
-      background: #8b6cff;
-      border-color: #8b6cff;
-      color: #fff;
-    }
+  min-height: 70px;
 
-    section {
-      padding: 45px 7%;
-    }
+  margin-bottom: 20px;
+}
 
-    .section-title {
-      margin-bottom: 30px;
-    }
+.button {
+  display: block;
 
-    .section-title h2 {
-      font-size: 32px;
-    }
+  width: 100%;
 
-    .section-title p {
-      margin-top: 6px;
-      color: #8e98b0;
-    }
+  padding: 12px;
 
-    .tools {
-      display: grid;
+  border: none;
+  border-radius: 11px;
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
+  background: #7c5cff;
 
-      gap: 20px;
-    }
+  color: white;
 
-    .card {
-      display: flex;
-      flex-direction: column;
+  text-align: center;
+  text-decoration: none;
 
-      background: #11182b;
+  font-weight: bold;
 
-      border: 1px solid #222c47;
-      border-radius: 18px;
+  cursor: pointer;
+}
 
-      padding: 25px;
+.button:hover {
+  background: #6948f0;
+}
 
-      transition:
-        transform 0.2s,
-        border-color 0.2s,
-        box-shadow 0.2s;
-    }
+.coming {
+  background: rgba(255,255,255,.06);
+  color: #8795aa;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
+/* ABOUT */
 
-      border-color: #8b6cff;
+.about {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
 
-      box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.3);
-    }
+.about p {
+  color: #91a0b5;
+  line-height: 1.8;
+}
 
-    .icon {
-      font-size: 38px;
-      margin-bottom: 14px;
-    }
+/* FOOTER */
 
-    .tag {
-      display: inline-block;
-      align-self: flex-start;
+footer {
+  text-align: center;
 
-      padding: 5px 9px;
+  padding: 35px 20px;
 
-      margin-bottom: 12px;
+  border-top:
+    1px solid rgba(255,255,255,.07);
 
-      border-radius: 20px;
+  color: #64748b;
 
-      background: #202944;
-      color: #a99aff;
+  font-size: 13px;
+}
 
-      font-size: 12px;
-    }
+/* MODAL */
 
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 21px;
-    }
+.modal {
+  display: none;
 
-    .card p {
-      color: #9fa9c0;
+  position: fixed;
 
-      font-size: 14px;
+  inset: 0;
 
-      margin-bottom: 22px;
+  background: rgba(0,0,0,.75);
 
-      flex-grow: 1;
-    }
+  z-index: 1000;
 
-    .button {
-      display: inline-block;
+  align-items: center;
+  justify-content: center;
 
-      padding: 10px 15px;
+  padding: 20px;
+}
 
-      background: #8b6cff;
-      color: #fff;
+.modal-box {
+  width: 100%;
+  max-width: 600px;
 
-      border-radius: 9px;
+  background: #0b1728;
 
-      text-decoration: none;
+  border:
+    1px solid rgba(255,255,255,.1);
 
-      font-size: 14px;
-      font-weight: bold;
+  border-radius: 20px;
 
-      text-align: center;
+  padding: 25px;
+}
 
-      transition: 0.2s;
-    }
+.modal-box h2 {
+  margin-bottom: 10px;
+}
 
-    .button:hover {
-      background: #7656ee;
-    }
+.modal-box p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
 
-    .no-results {
-      display: none;
+.close {
+  background: #222f42;
+  margin-top: 10px;
+}
 
-      padding: 50px 20px;
+/* MOBILE */
 
-      text-align: center;
+@media (max-width: 650px) {
 
-      color: #8e98b0;
-    }
+  header {
+    padding: 0 5%;
+  }
 
-    .about {
-      max-width: 800px;
-      margin: auto;
+  nav {
+    gap: 12px;
+  }
 
-      text-align: center;
-    }
+  nav a {
+    font-size: 12px;
+  }
 
-    .about p {
-      color: #aeb7cc;
-      font-size: 16px;
-    }
+  .hero {
+    padding-top: 70px;
+  }
 
-    footer {
-      margin-top: 40px;
-
-      padding: 35px;
-
-      border-top: 1px solid #202943;
-
-      text-align: center;
-
-      color: #69738d;
-
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-
-      header {
-        padding: 18px 5%;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      nav a {
-        margin-left: 10px;
-      }
-
-      .hero {
-        padding: 65px 20px 50px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 40px 5%;
-      }
-
-      .section-title h2 {
-        font-size: 28px;
-      }
-
-    }
-  </style>
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
 
   <div class="logo">
-    Aivora
+    Ai<span>vora</span>
   </div>
 
   <nav>
+    <a href="#home">Home</a>
     <a href="#tools">Tools</a>
     <a href="#about">About</a>
   </nav>
@@ -367,1089 +357,404 @@
 </header>
 
 
-<!-- HERO -->
+<main id="home">
 
 <section class="hero">
 
+  <div class="badge">
+    ✨ Welcome to Aivora
+  </div>
+
   <h1>
-    Discover the world's
-    <span>best AI tools.</span>
+    Explore the power of
+    <span>AI.</span>
   </h1>
 
   <p>
-    Find powerful AI tools for writing, images, video,
-    music, coding and productivity — all in one place.
+    Discover useful artificial intelligence tools
+    designed to help you create, learn, write and
+    explore new ideas.
   </p>
 
-  <div class="search">
-
-    <input
-      id="search"
-      type="text"
-      placeholder="Search AI tools..."
-      autocomplete="off"
-    >
-
-  </div>
+  <a
+    href="#tools"
+    class="hero-button">
+    Explore AI Tools
+  </a>
 
 </section>
 
 
-<!-- CATEGORIES -->
-
-<div class="categories">
-
-  <button
-    class="category active"
-    data-category="all"
-  >
-    All
-  </button>
-
-  <button
-    class="category"
-    data-category="Writing"
-  >
-    ✍️ Writing
-  </button>
-
-  <button
-    class="category"
-    data-category="Images"
-  >
-    🎨 Images
-  </button>
-
-  <button
-    class="category"
-    data-category="Video"
-  >
-    🎬 Video
-  </button>
-
-  <button
-    class="category"
-    data-category="Music"
-  >
-    🎵 Music
-  </button>
-
-  <button
-    class="category"
-    data-category="Coding"
-  >
-    💻 Coding
-  </button>
-
-  <button
-    class="category"
-    data-category="Productivity"
-  >
-    ⚡ Productivity
-  </button>
-
-</div>
-
-
-<!-- TOOLS -->
-
-<section id="tools">
+<section
+  class="section"
+  id="tools">
 
   <div class="section-title">
 
     <h2>
-      AI Tools Directory
+      AI Tools
     </h2>
 
     <p>
-      Explore useful AI tools and discover your next favorite.
+      Everything in one simple place.
     </p>
 
   </div>
 
 
-  <div
-    class="tools"
-    id="toolGrid"
-  >
+  <div class="grid">
 
 
-    <!-- 1 CHATGPT -->
+    <!-- CHATGPT -->
 
-    <div class="card" data-category="Writing">
+    <div class="card">
 
-      <div class="icon">✍️</div>
+      <div class="icon">
+        🤖
+      </div>
 
-      <span class="tag">Writing</span>
-
-      <h3>ChatGPT</h3>
+      <h3>
+        Chat with AI
+      </h3>
 
       <p>
-        AI assistant for writing, brainstorming,
-        learning and everyday tasks.
+        Ask questions, brainstorm ideas,
+        learn new things and have conversations
+        with AI.
       </p>
 
       <a
         class="button"
         href="https://chatgpt.com/"
         target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
+        rel="noopener noreferrer">
+
+        Open ChatGPT
+
       </a>
 
     </div>
 
 
-    <!-- 2 CLAUDE -->
+    <!-- WRITING -->
 
-    <div class="card" data-category="Writing">
+    <div class="card">
 
-      <div class="icon">🧠</div>
+      <div class="icon">
+        ✍🏿
+      </div>
 
-      <span class="tag">Writing</span>
-
-      <h3>Claude</h3>
+      <h3>
+        AI Writing
+      </h3>
 
       <p>
-        AI assistant for writing, analysis,
-        research and complex tasks.
+        Create articles, captions, stories,
+        emails and creative ideas.
       </p>
 
-      <a
+      <button
         class="button"
-        href="https://claude.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
+        onclick="openTool('writing')">
+
+        Explore Writing
+
+      </button>
 
     </div>
 
 
-    <!-- 3 GEMINI -->
+    <!-- IMAGES -->
 
-    <div class="card" data-category="Writing">
+    <div class="card">
 
-      <div class="icon">✨</div>
+      <div class="icon">
+        🎨
+      </div>
 
-      <span class="tag">Writing</span>
-
-      <h3>Google Gemini</h3>
+      <h3>
+        AI Images
+      </h3>
 
       <p>
-        Google's AI assistant for questions,
-        ideas, writing and productivity.
+        Explore AI-powered image creation
+        and visual creativity.
       </p>
 
-      <a
+      <button
         class="button"
-        href="https://gemini.google.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
+        onclick="openTool('images')">
+
+        Explore Images
+
+      </button>
 
     </div>
 
 
-    <!-- 4 JASPER -->
+    <!-- CODING -->
 
-    <div class="card" data-category="Writing">
+    <div class="card">
 
-      <div class="icon">📝</div>
+      <div class="icon">
+        💻
+      </div>
 
-      <span class="tag">Writing</span>
-
-      <h3>Jasper</h3>
+      <h3>
+        AI Coding
+      </h3>
 
       <p>
-        AI platform designed for marketing
-        content and business writing.
+        Learn programming and get help
+        understanding code.
       </p>
 
-      <a
+      <button
         class="button"
-        href="https://www.jasper.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
+        onclick="openTool('coding')">
+
+        Explore Coding
+
+      </button>
 
     </div>
 
 
-    <!-- 5 COPY.AI -->
+    <!-- STUDY -->
 
-    <div class="card" data-category="Writing">
+    <div class="card">
 
-      <div class="icon">📄</div>
+      <div class="icon">
+        📚
+      </div>
 
-      <span class="tag">Writing</span>
-
-      <h3>Copy.ai</h3>
+      <h3>
+        AI Study
+      </h3>
 
       <p>
-        AI-powered platform for content,
-        marketing and business workflows.
+        Make studying easier with explanations,
+        summaries and learning tools.
       </p>
 
-      <a
+      <button
         class="button"
-        href="https://www.copy.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
+        onclick="openTool('study')">
+
+        Explore Study
+
+      </button>
 
     </div>
 
 
-    <!-- 6 GRAMMARLY -->
+    <!-- MUSIC -->
 
-    <div class="card" data-category="Writing">
+    <div class="card">
 
-      <div class="icon">✏️</div>
+      <div class="icon">
+        🎵
+      </div>
 
-      <span class="tag">Writing</span>
-
-      <h3>Grammarly</h3>
+      <h3>
+        AI Music
+      </h3>
 
       <p>
-        AI writing assistance for grammar,
-        clarity and communication.
+        Explore songwriting, lyrics,
+        music ideas and creativity.
       </p>
 
-      <a
+      <button
         class="button"
-        href="https://www.grammarly.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
+        onclick="openTool('music')">
+
+        Explore Music
+
+      </button>
 
     </div>
 
 
-    <!-- 7 CANVA -->
-
-    <div class="card" data-category="Images">
-
-      <div class="icon">🎨</div>
-
-      <span class="tag">Images</span>
-
-      <h3>Canva</h3>
-
-      <p>
-        Create designs, presentations and
-        visual content with AI features.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.canva.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 8 ADOBE FIREFLY -->
-
-    <div class="card" data-category="Images">
-
-      <div class="icon">🖼️</div>
-
-      <span class="tag">Images</span>
-
-      <h3>Adobe Firefly</h3>
-
-      <p>
-        Generate and edit creative visual
-        content using generative AI.
-      </p>
-
-      <a
-        class="button"
-        href="https://firefly.adobe.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 9 MIDJOURNEY -->
-
-    <div class="card" data-category="Images">
-
-      <div class="icon">🌌</div>
-
-      <span class="tag">Images</span>
-
-      <h3>Midjourney</h3>
-
-      <p>
-        Create imaginative and artistic images
-        with generative AI.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.midjourney.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 10 LEONARDO AI -->
-
-    <div class="card" data-category="Images">
-
-      <div class="icon">🧑‍🎨</div>
-
-      <span class="tag">Images</span>
-
-      <h3>Leonardo AI</h3>
-
-      <p>
-        AI image generation and creative
-        production tools.
-      </p>
-
-      <a
-        class="button"
-        href="https://leonardo.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 11 IDEOGRAM -->
-
-    <div class="card" data-category="Images">
-
-      <div class="icon">🔤</div>
-
-      <span class="tag">Images</span>
-
-      <h3>Ideogram</h3>
-
-      <p>
-        Generate images with a strong focus
-        on text and graphic design.
-      </p>
-
-      <a
-        class="button"
-        href="https://ideogram.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 12 PHOTOROOM -->
-
-    <div class="card" data-category="Images">
-
-      <div class="icon">📸</div>
-
-      <span class="tag">Images</span>
-
-      <h3>Photoroom</h3>
-
-      <p>
-        AI-powered image editing and product
-        photography tools.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.photoroom.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 13 RUNWAY -->
-
-    <div class="card" data-category="Video">
-
-      <div class="icon">🎬</div>
-
-      <span class="tag">Video</span>
-
-      <h3>Runway</h3>
-
-      <p>
-        AI tools for generating and editing
-        creative video content.
-      </p>
-
-      <a
-        class="button"
-        href="https://runwayml.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 14 PIKA -->
-
-    <div class="card" data-category="Video">
-
-      <div class="icon">🎞️</div>
-
-      <span class="tag">Video</span>
-
-      <h3>Pika</h3>
-
-      <p>
-        Create and transform videos using
-        generative AI.
-      </p>
-
-      <a
-        class="button"
-        href="https://pika.art/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 15 HEYGEN -->
-
-    <div class="card" data-category="Video">
-
-      <div class="icon">🧑‍💻</div>
-
-      <span class="tag">Video</span>
-
-      <h3>HeyGen</h3>
-
-      <p>
-        Create AI avatar videos and
-        multilingual presentations.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.heygen.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 16 SYNTHESIA -->
-
-    <div class="card" data-category="Video">
-
-      <div class="icon">🎥</div>
-
-      <span class="tag">Video</span>
-
-      <h3>Synthesia</h3>
-
-      <p>
-        Create professional videos using
-        AI avatars and voice.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.synthesia.io/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 17 DESCRIPT -->
-
-    <div class="card" data-category="Video">
-
-      <div class="icon">🎙️</div>
-
-      <span class="tag">Video</span>
-
-      <h3>Descript</h3>
-
-      <p>
-        AI-powered tools for editing video,
-        audio and podcasts.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.descript.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 18 CAPCUT -->
-
-    <div class="card" data-category="Video">
-
-      <div class="icon">✂️</div>
-
-      <span class="tag">Video</span>
-
-      <h3>CapCut</h3>
-
-      <p>
-        Video editing platform with AI-powered
-        creative features.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.capcut.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 19 SUNO -->
-
-    <div class="card" data-category="Music">
-
-      <div class="icon">🎵</div>
-
-      <span class="tag">Music</span>
-
-      <h3>Suno</h3>
-
-      <p>
-        Generate songs and music using
-        artificial intelligence.
-      </p>
-
-      <a
-        class="button"
-        href="https://suno.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 20 UDIO -->
-
-    <div class="card" data-category="Music">
-
-      <div class="icon">🎶</div>
-
-      <span class="tag">Music</span>
-
-      <h3>Udio</h3>
-
-      <p>
-        Create original music and songs
-        with generative AI.
-      </p>
-
-      <a
-        class="button"
-        href="https://udio.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 21 ELEVENLABS -->
-
-    <div class="card" data-category="Music">
-
-      <div class="icon">🔊</div>
-
-      <span class="tag">Music</span>
-
-      <h3>ElevenLabs</h3>
-
-      <p>
-        AI voice generation, text-to-speech
-        and audio tools.
-      </p>
-
-      <a
-        class="button"
-        href="https://elevenlabs.io/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 22 GITHUB COPILOT -->
-
-    <div class="card" data-category="Coding">
-
-      <div class="icon">💻</div>
-
-      <span class="tag">Coding</span>
-
-      <h3>GitHub Copilot</h3>
-
-      <p>
-        AI coding assistance for developers
-        while writing software.
-      </p>
-
-      <a
-        class="button"
-        href="https://github.com/features/copilot"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 23 CURSOR -->
-
-    <div class="card" data-category="Coding">
-
-      <div class="icon">⌨️</div>
-
-      <span class="tag">Coding</span>
-
-      <h3>Cursor</h3>
-
-      <p>
-        AI-powered code editor designed
-        for faster software development.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.cursor.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 24 REPLIT -->
-
-    <div class="card" data-category="Coding">
-
-      <div class="icon">🛠️</div>
-
-      <span class="tag">Coding</span>
-
-      <h3>Replit</h3>
-
-      <p>
-        Build and deploy software with
-        AI-assisted development tools.
-      </p>
-
-      <a
-        class="button"
-        href="https://replit.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 25 TABNINE -->
-
-    <div class="card" data-category="Coding">
-
-      <div class="icon">🤖</div>
-
-      <span class="tag">Coding</span>
-
-      <h3>Tabnine</h3>
-
-      <p>
-        AI coding assistant that helps
-        developers write code faster.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.tabnine.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 26 NOTION AI -->
-
-    <div class="card" data-category="Productivity">
-
-      <div class="icon">📋</div>
-
-      <span class="tag">Productivity</span>
-
-      <h3>Notion AI</h3>
-
-      <p>
-        AI features for notes, documents,
-        planning and knowledge management.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.notion.so/product/ai"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 27 PERPLEXITY -->
-
-    <div class="card" data-category="Productivity">
-
-      <div class="icon">🔎</div>
-
-      <span class="tag">Productivity</span>
-
-      <h3>Perplexity</h3>
-
-      <p>
-        AI-powered search and research
-        assistant for finding information.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.perplexity.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 28 OTTER AI -->
-
-    <div class="card" data-category="Productivity">
-
-      <div class="icon">📝</div>
-
-      <span class="tag">Productivity</span>
-
-      <h3>Otter.ai</h3>
-
-      <p>
-        AI meeting transcription, notes
-        and conversation summaries.
-      </p>
-
-      <a
-        class="button"
-        href="https://otter.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 29 GAMMA -->
-
-    <div class="card" data-category="Productivity">
-
-      <div class="icon">📊</div>
-
-      <span class="tag">Productivity</span>
-
-      <h3>Gamma</h3>
-
-      <p>
-        Create presentations, documents
-        and visual content with AI.
-      </p>
-
-      <a
-        class="button"
-        href="https://gamma.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-    <!-- 30 ZAPIER -->
-
-    <div class="card" data-category="Productivity">
-
-      <div class="icon">⚡</div>
-
-      <span class="tag">Productivity</span>
-
-      <h3>Zapier</h3>
-
-      <p>
-        Automate workflows and connect
-        apps with AI-powered automation.
-      </p>
-
-      <a
-        class="button"
-        href="https://zapier.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Tool →
-      </a>
-
-    </div>
-
-
-  </div>
-
-
-  <div
-    class="no-results"
-    id="noResults"
-  >
-    No AI tools found. Try another search.
   </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<section
+  class="section"
+  id="about">
 
-<section id="about">
+  <div class="section-title">
+
+    <h2>
+      About Aivora
+    </h2>
+
+  </div>
 
   <div class="about">
 
-    <div class="section-title">
-
-      <h2>
-        About Aivora
-      </h2>
-
-    </div>
-
     <p>
-      Aivora is an independent AI discovery website
-      helping beginners discover useful artificial
-      intelligence tools without getting overwhelmed.
+      Aivora is a growing AI discovery platform
+      designed to bring useful artificial intelligence
+      tools together in one simple place.
     </p>
 
   </div>
 
 </section>
 
+</main>
 
-<!-- FOOTER -->
 
 <footer>
 
-  © 2026 Aivora — Discover. Create. Grow.
+  © 2026 Aivora — AI for Everyone
 
 </footer>
 
 
-<!-- JAVASCRIPT -->
+<!-- TOOL MODAL -->
+
+<div
+  class="modal"
+  id="toolModal">
+
+  <div class="modal-box">
+
+    <h2 id="modalTitle">
+      Aivora Tool
+    </h2>
+
+    <p id="modalText">
+      This Aivora tool is currently being developed.
+    </p>
+
+    <button
+      class="button close"
+      onclick="closeTool()">
+
+      Close
+
+    </button>
+
+  </div>
+
+</div>
+
 
 <script>
 
-  const searchInput =
-    document.getElementById("search");
+function openTool(tool) {
 
-  const cards =
-    document.querySelectorAll(".card");
+  const modal =
+    document.getElementById(
+      "toolModal"
+    );
 
-  const noResults =
-    document.getElementById("noResults");
+  const title =
+    document.getElementById(
+      "modalTitle"
+    );
 
-  const categoryButtons =
-    document.querySelectorAll(".category");
-
-
-  let selectedCategory = "all";
-
-
-  function updateTools() {
-
-    const query =
-      searchInput.value
-        .trim()
-        .toLowerCase();
-
-    let visible = 0;
+  const text =
+    document.getElementById(
+      "modalText"
+    );
 
 
-    cards.forEach(function(card) {
+  const tools = {
 
-      const text =
-        card.innerText.toLowerCase();
+    writing: {
 
-      const category =
-        card.dataset.category.toLowerCase();
+      title:
+        "✍🏿 Aivora Writing",
 
+      text:
+        "Aivora Writing is being developed. Soon you'll be able to create articles, captions, stories, emails and more."
+    },
 
-      const matchesSearch =
-        text.includes(query);
+    images: {
 
+      title:
+        "🎨 Aivora Images",
 
-      const matchesCategory =
-        selectedCategory === "all" ||
-        category === selectedCategory.toLowerCase();
+      text:
+        "Aivora Images is coming soon. We'll build a simple place for AI image creation."
+    },
 
+    coding: {
 
-      if (
-        matchesSearch &&
-        matchesCategory
-      ) {
+      title:
+        "💻 Aivora Coding",
 
-        card.style.display = "";
+      text:
+        "Aivora Coding is coming soon. You'll be able to explore coding assistance and programming tools."
+    },
 
-        visible++;
+    study: {
 
-      } else {
+      title:
+        "📚 Aivora Study",
 
-        card.style.display = "none";
+      text:
+        "Aivora Study is coming soon. We're planning useful tools for learning, explanations and study support."
+    },
 
-      }
+    music: {
 
-    });
+      title:
+        "🎵 Aivora Music",
 
-
-    if (visible === 0) {
-
-      noResults.style.display = "block";
-
-    } else {
-
-      noResults.style.display = "none";
-
+      text:
+        "Aivora Music is coming soon. We'll add tools for lyrics, songwriting and music creativity."
     }
+
+  };
+
+
+  title.textContent =
+    tools[tool].title;
+
+  text.textContent =
+    tools[tool].text;
+
+
+  modal.style.display =
+    "flex";
+
+}
+
+
+function closeTool() {
+
+  document.getElementById(
+    "toolModal"
+  ).style.display =
+    "none";
+
+}
+
+
+window.onclick =
+function(event) {
+
+  const modal =
+    document.getElementById(
+      "toolModal"
+    );
+
+  if (event.target === modal) {
+
+    modal.style.display =
+      "none";
 
   }
 
-
-  searchInput.addEventListener(
-    "input",
-    updateTools
-  );
-
-
-  categoryButtons.forEach(function(button) {
-
-    button.addEventListener(
-      "click",
-      function() {
-
-        selectedCategory =
-          button.dataset.category;
-
-
-        categoryButtons.forEach(
-          function(btn) {
-
-            btn.classList.remove("active");
-
-          }
-        );
-
-
-        button.classList.add("active");
-
-
-        updateTools();
-
-      }
-    );
-
-  });
-
-
-  updateTools();
+};
 
 </script>
-
 
 </body>
 </html>
