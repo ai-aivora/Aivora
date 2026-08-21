@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Aivora — AI Tools</title>
 
 <style>
@@ -24,29 +23,24 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER */
-
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-
   height: 70px;
   padding: 0 7%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  background: rgba(7,17,31,.92);
+  background: rgba(7,17,31,.94);
   backdrop-filter: blur(12px);
-
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .logo {
   font-size: 28px;
   font-weight: 900;
+  letter-spacing: -1px;
 }
 
 .logo span {
@@ -68,8 +62,6 @@ nav a:hover {
   color: white;
 }
 
-/* HERO */
-
 .hero {
   text-align: center;
   padding: 90px 20px 70px;
@@ -79,10 +71,8 @@ nav a:hover {
   display: inline-block;
   padding: 8px 15px;
   border-radius: 30px;
-
   background: rgba(124,92,255,.12);
   border: 1px solid rgba(124,92,255,.3);
-
   color: #bcaeff;
   font-size: 13px;
   margin-bottom: 25px;
@@ -102,7 +92,6 @@ nav a:hover {
 .hero p {
   max-width: 680px;
   margin: auto;
-
   color: #9eacc0;
   font-size: 18px;
   line-height: 1.7;
@@ -111,12 +100,9 @@ nav a:hover {
 .hero-button {
   display: inline-block;
   margin-top: 30px;
-
   padding: 14px 25px;
-
   border-radius: 12px;
   background: #7c5cff;
-
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -125,8 +111,6 @@ nav a:hover {
 .hero-button:hover {
   background: #6948f0;
 }
-
-/* SECTION */
 
 .section {
   width: 90%;
@@ -148,42 +132,24 @@ nav a:hover {
   color: #8190a6;
 }
 
-/* TOOLS */
-
 .grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(240px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
 .card {
-  background:
-    linear-gradient(
-      145deg,
-      #0d1b2d,
-      #091321
-    );
-
+  background: linear-gradient(145deg, #0d1b2d, #091321);
   border: 1px solid rgba(255,255,255,.08);
-
   border-radius: 20px;
-
   padding: 27px;
-
   transition: .25s;
 }
 
 .card:hover {
   transform: translateY(-6px);
-
-  border-color:
-    rgba(124,92,255,.6);
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.25);
+  border-color: rgba(124,92,255,.6);
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
 }
 
 .icon {
@@ -200,44 +166,27 @@ nav a:hover {
   color: #91a0b5;
   font-size: 14px;
   line-height: 1.6;
-
   min-height: 70px;
-
   margin-bottom: 20px;
 }
 
 .button {
   display: block;
-
   width: 100%;
-
   padding: 12px;
-
   border: none;
   border-radius: 11px;
-
   background: #7c5cff;
-
   color: white;
-
   text-align: center;
   text-decoration: none;
-
   font-weight: bold;
-
   cursor: pointer;
 }
 
 .button:hover {
   background: #6948f0;
 }
-
-.coming {
-  background: rgba(255,255,255,.06);
-  color: #8795aa;
-}
-
-/* ABOUT */
 
 .about {
   max-width: 750px;
@@ -250,68 +199,128 @@ nav a:hover {
   line-height: 1.8;
 }
 
-/* FOOTER */
-
 footer {
   text-align: center;
-
   padding: 35px 20px;
-
-  border-top:
-    1px solid rgba(255,255,255,.07);
-
+  border-top: 1px solid rgba(255,255,255,.07);
   color: #64748b;
-
   font-size: 13px;
 }
 
-/* MODAL */
 
-.modal {
+/* WRITING STUDIO */
+
+.writer-section {
   display: none;
-
-  position: fixed;
-
-  inset: 0;
-
-  background: rgba(0,0,0,.75);
-
-  z-index: 1000;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
+  width: 90%;
+  max-width: 950px;
+  margin: 50px auto 80px;
 }
 
-.modal-box {
-  width: 100%;
-  max-width: 600px;
-
-  background: #0b1728;
-
-  border:
-    1px solid rgba(255,255,255,.1);
-
-  border-radius: 20px;
-
-  padding: 25px;
+.writer-header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.modal-box h2 {
+.writer-header h2 {
+  font-size: 40px;
   margin-bottom: 10px;
 }
 
-.modal-box p {
-  color: #94a3b8;
-  line-height: 1.6;
+.writer-header h2 span {
+  color: #7c5cff;
+}
+
+.writer-header p {
+  color: #91a0b5;
+}
+
+.writer-box {
+  background: #0b1728;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+  padding: 25px;
+}
+
+.field {
   margin-bottom: 20px;
 }
 
-.close {
-  background: #222f42;
-  margin-top: 10px;
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #dbe5f2;
 }
+
+select,
+textarea {
+  width: 100%;
+  background: #07111f;
+  color: white;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+select:focus,
+textarea:focus {
+  border-color: #7c5cff;
+}
+
+textarea {
+  min-height: 170px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.generate {
+  margin-top: 5px;
+}
+
+.output {
+  margin-top: 25px;
+  background: #07111f;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 200px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.output-title {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.output-actions {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.secondary {
+  background: #172338;
+}
+
+.back-button {
+  margin-top: 20px;
+  background: #172338;
+}
+
 
 /* MOBILE */
 
@@ -336,6 +345,10 @@ footer {
   .hero h1 {
     letter-spacing: -2px;
   }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -349,15 +362,17 @@ footer {
   </div>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#tools" onclick="showHome()">Tools</a>
+    <a href="#about" onclick="showHome()">About</a>
   </nav>
 
 </header>
 
 
-<main id="home">
+<!-- HOME -->
+
+<div id="homePage">
 
 <section class="hero">
 
@@ -391,9 +406,7 @@ footer {
 
   <div class="section-title">
 
-    <h2>
-      AI Tools
-    </h2>
+    <h2>AI Tools</h2>
 
     <p>
       Everything in one simple place.
@@ -405,22 +418,17 @@ footer {
   <div class="grid">
 
 
-    <!-- CHATGPT -->
+    <!-- CHAT -->
 
     <div class="card">
 
-      <div class="icon">
-        🤖
-      </div>
+      <div class="icon">🤖</div>
 
-      <h3>
-        Chat with AI
-      </h3>
+      <h3>Chat with AI</h3>
 
       <p>
         Ask questions, brainstorm ideas,
-        learn new things and have conversations
-        with AI.
+        learn new things and chat with AI.
       </p>
 
       <a
@@ -440,13 +448,9 @@ footer {
 
     <div class="card">
 
-      <div class="icon">
-        ✍🏿
-      </div>
+      <div class="icon">✍🏿</div>
 
-      <h3>
-        AI Writing
-      </h3>
+      <h3>AI Writing</h3>
 
       <p>
         Create articles, captions, stories,
@@ -455,9 +459,9 @@ footer {
 
       <button
         class="button"
-        onclick="openTool('writing')">
+        onclick="showWriter()">
 
-        Explore Writing
+        Open Writing Studio
 
       </button>
 
@@ -468,13 +472,9 @@ footer {
 
     <div class="card">
 
-      <div class="icon">
-        🎨
-      </div>
+      <div class="icon">🎨</div>
 
-      <h3>
-        AI Images
-      </h3>
+      <h3>AI Images</h3>
 
       <p>
         Explore AI-powered image creation
@@ -483,9 +483,9 @@ footer {
 
       <button
         class="button"
-        onclick="openTool('images')">
+        onclick="comingSoon('AI Images')">
 
-        Explore Images
+        Coming Soon
 
       </button>
 
@@ -496,13 +496,9 @@ footer {
 
     <div class="card">
 
-      <div class="icon">
-        💻
-      </div>
+      <div class="icon">💻</div>
 
-      <h3>
-        AI Coding
-      </h3>
+      <h3>AI Coding</h3>
 
       <p>
         Learn programming and get help
@@ -511,9 +507,9 @@ footer {
 
       <button
         class="button"
-        onclick="openTool('coding')">
+        onclick="comingSoon('AI Coding')">
 
-        Explore Coding
+        Coming Soon
 
       </button>
 
@@ -524,13 +520,9 @@ footer {
 
     <div class="card">
 
-      <div class="icon">
-        📚
-      </div>
+      <div class="icon">📚</div>
 
-      <h3>
-        AI Study
-      </h3>
+      <h3>AI Study</h3>
 
       <p>
         Make studying easier with explanations,
@@ -539,9 +531,9 @@ footer {
 
       <button
         class="button"
-        onclick="openTool('study')">
+        onclick="comingSoon('AI Study')">
 
-        Explore Study
+        Coming Soon
 
       </button>
 
@@ -552,13 +544,9 @@ footer {
 
     <div class="card">
 
-      <div class="icon">
-        🎵
-      </div>
+      <div class="icon">🎵</div>
 
-      <h3>
-        AI Music
-      </h3>
+      <h3>AI Music</h3>
 
       <p>
         Explore songwriting, lyrics,
@@ -567,14 +555,13 @@ footer {
 
       <button
         class="button"
-        onclick="openTool('music')">
+        onclick="comingSoon('AI Music')">
 
-        Explore Music
+        Coming Soon
 
       </button>
 
     </div>
-
 
   </div>
 
@@ -587,9 +574,7 @@ footer {
 
   <div class="section-title">
 
-    <h2>
-      About Aivora
-    </h2>
+    <h2>About Aivora</h2>
 
   </div>
 
@@ -605,7 +590,180 @@ footer {
 
 </section>
 
-</main>
+</div>
+
+
+<!-- WRITING STUDIO -->
+
+<section
+  class="writer-section"
+  id="writingStudio">
+
+  <div class="writer-header">
+
+    <h2>
+      Aivora <span>Writing</span>
+    </h2>
+
+    <p>
+      Turn your ideas into better writing.
+    </p>
+
+  </div>
+
+
+  <div class="writer-box">
+
+
+    <div class="field">
+
+      <label>
+        What are you writing?
+      </label>
+
+      <select id="writingType">
+
+        <option>Article</option>
+
+        <option>Social Media Caption</option>
+
+        <option>Email</option>
+
+        <option>Story</option>
+
+        <option>Song Lyrics</option>
+
+        <option>Business Idea</option>
+
+        <option>Product Description</option>
+
+        <option>Blog Post</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="controls">
+
+      <div class="field">
+
+        <label>
+          Tone
+        </label>
+
+        <select id="writingTone">
+
+          <option>Professional</option>
+
+          <option>Friendly</option>
+
+          <option>Casual</option>
+
+          <option>Inspirational</option>
+
+          <option>Creative</option>
+
+          <option>Funny</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Length
+        </label>
+
+        <select id="writingLength">
+
+          <option>Short</option>
+
+          <option>Medium</option>
+
+          <option>Long</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Your topic or instructions
+      </label>
+
+      <textarea
+        id="writingPrompt"
+        placeholder="Example: Write a motivational social media caption about never giving up..."></textarea>
+
+    </div>
+
+
+    <button
+      class="button generate"
+      onclick="generateWriting()">
+
+      ✨ Generate Writing
+
+    </button>
+
+
+    <div
+      class="output"
+      id="writingOutput">
+
+      <div class="output-title">
+        Your writing will appear here
+      </div>
+
+      <div>
+        Enter your idea above and click
+        "Generate Writing".
+      </div>
+
+    </div>
+
+
+    <div
+      class="output-actions"
+      id="outputActions">
+
+      <button
+        class="button secondary"
+        onclick="copyWriting()">
+
+        📋 Copy
+
+      </button>
+
+      <button
+        class="button secondary"
+        onclick="clearWriting()">
+
+        🗑️ Clear
+
+      </button>
+
+    </div>
+
+
+    <button
+      class="button back-button"
+      onclick="showHome()">
+
+      ← Back to Aivora
+
+    </button>
+
+  </div>
+
+</section>
 
 
 <footer>
@@ -615,144 +773,380 @@ footer {
 </footer>
 
 
-<!-- TOOL MODAL -->
-
-<div
-  class="modal"
-  id="toolModal">
-
-  <div class="modal-box">
-
-    <h2 id="modalTitle">
-      Aivora Tool
-    </h2>
-
-    <p id="modalText">
-      This Aivora tool is currently being developed.
-    </p>
-
-    <button
-      class="button close"
-      onclick="closeTool()">
-
-      Close
-
-    </button>
-
-  </div>
-
-</div>
-
-
 <script>
 
-function openTool(tool) {
+/* =========================================================
+   SHOW WRITING STUDIO
+========================================================= */
 
-  const modal =
-    document.getElementById(
-      "toolModal"
-    );
+function showWriter() {
 
-  const title =
-    document.getElementById(
-      "modalTitle"
-    );
+  document.getElementById(
+    "homePage"
+  ).style.display = "none";
 
-  const text =
-    document.getElementById(
-      "modalText"
-    );
+  document.getElementById(
+    "writingStudio"
+  ).style.display = "block";
 
-
-  const tools = {
-
-    writing: {
-
-      title:
-        "✍🏿 Aivora Writing",
-
-      text:
-        "Aivora Writing is being developed. Soon you'll be able to create articles, captions, stories, emails and more."
-    },
-
-    images: {
-
-      title:
-        "🎨 Aivora Images",
-
-      text:
-        "Aivora Images is coming soon. We'll build a simple place for AI image creation."
-    },
-
-    coding: {
-
-      title:
-        "💻 Aivora Coding",
-
-      text:
-        "Aivora Coding is coming soon. You'll be able to explore coding assistance and programming tools."
-    },
-
-    study: {
-
-      title:
-        "📚 Aivora Study",
-
-      text:
-        "Aivora Study is coming soon. We're planning useful tools for learning, explanations and study support."
-    },
-
-    music: {
-
-      title:
-        "🎵 Aivora Music",
-
-      text:
-        "Aivora Music is coming soon. We'll add tools for lyrics, songwriting and music creativity."
-    }
-
-  };
-
-
-  title.textContent =
-    tools[tool].title;
-
-  text.textContent =
-    tools[tool].text;
-
-
-  modal.style.display =
-    "flex";
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
 }
 
 
-function closeTool() {
+/* =========================================================
+   SHOW HOME
+========================================================= */
+
+function showHome() {
 
   document.getElementById(
-    "toolModal"
+    "homePage"
+  ).style.display = "block";
+
+  document.getElementById(
+    "writingStudio"
+  ).style.display = "none";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================================================
+   GENERATE WRITING
+========================================================= */
+
+function generateWriting() {
+
+  const type =
+    document.getElementById(
+      "writingType"
+    ).value;
+
+  const tone =
+    document.getElementById(
+      "writingTone"
+    ).value;
+
+  const length =
+    document.getElementById(
+      "writingLength"
+    ).value;
+
+  const prompt =
+    document.getElementById(
+      "writingPrompt"
+    ).value.trim();
+
+  const output =
+    document.getElementById(
+      "writingOutput"
+    );
+
+  const actions =
+    document.getElementById(
+      "outputActions"
+    );
+
+
+  if (!prompt) {
+
+    output.innerHTML = `
+
+      <div class="output-title">
+        ✍🏿 Give Aivora an idea first
+      </div>
+
+      <div>
+        Enter your topic or instructions
+        in the box above.
+      </div>
+
+    `;
+
+    actions.style.display =
+      "none";
+
+    return;
+  }
+
+
+  /*
+    FREE DEMO MODE
+
+    This creates a useful writing
+    template without calling a paid API.
+  */
+
+  let result = "";
+
+
+  if (type === "Social Media Caption") {
+
+    result =
+`✨ ${prompt}
+
+Keep going. Keep believing. Keep building.
+
+Every step forward matters, even when the progress feels small.
+
+#Motivation #Aivora #KeepGoing`;
+
+  }
+
+  else if (type === "Email") {
+
+    result =
+`Subject: ${prompt}
+
+Hello,
+
+I hope you're doing well.
+
+I’m reaching out regarding ${prompt.toLowerCase()}.
+
+I wanted to share this with you and start a conversation about the next steps.
+
+Please let me know what you think.
+
+Best regards`;
+
+  }
+
+  else if (type === "Song Lyrics") {
+
+    result =
+`[Verse 1]
+
+${prompt}
+
+I keep moving forward,
+Even when the road gets hard,
+I believe there's something better,
+Waiting somewhere in the dark.
+
+[Chorus]
+
+I'm still standing,
+I'm still dreaming,
+I'm still reaching for the sky.
+
+No matter what comes,
+I keep believing,
+I was made to rise.`;
+
+  }
+
+  else if (type === "Story") {
+
+    result =
+`Title: ${prompt}
+
+The journey began with a simple idea.
+
+Nobody knew exactly where it would lead, but one thing was certain: giving up was not an option.
+
+With courage, patience and determination, the next chapter slowly began to unfold.
+
+And sometimes, the biggest adventures begin with the smallest decision to simply start.`;
+
+  }
+
+  else if (type === "Article" ||
+           type === "Blog Post") {
+
+    result =
+`${prompt}
+
+Introduction
+
+${prompt} is an interesting topic that deserves attention.
+
+Understanding the subject can help people make better decisions, discover new opportunities and see the world from a different perspective.
+
+Why It Matters
+
+There are many reasons why this topic is important. Learning more about it can provide useful knowledge and inspire people to take meaningful action.
+
+Key Ideas
+
+The most important thing is to start with a clear understanding of the subject, consider different perspectives and focus on practical solutions.
+
+Conclusion
+
+Ultimately, ${prompt.toLowerCase()} is a topic worth exploring further. With the right knowledge and approach, it can become an opportunity for growth and creativity.`;
+
+  }
+
+  else if (type === "Business Idea") {
+
+    result =
+`Business Idea: ${prompt}
+
+Concept
+
+Create a simple and useful business focused on solving a real problem related to ${prompt}.
+
+Target Customers
+
+People who need practical, affordable and convenient solutions.
+
+Value
+
+The business should make life easier, save time or provide something customers cannot easily get elsewhere.
+
+Next Step
+
+Start small, test the idea with real users and improve the service based on their feedback.`;
+
+  }
+
+  else if (type === "Product Description") {
+
+    result =
+`${prompt}
+
+Discover a product designed to make everyday life easier.
+
+Key Benefits:
+
+• Simple and practical
+• Designed for convenience
+• Easy to use
+• Built around customer needs
+
+Whether you're looking for quality, convenience or a better experience, ${prompt.toLowerCase()} offers a solution worth exploring.`;
+
+  }
+
+
+  output.innerHTML = `
+
+    <div class="output-title">
+      ✨ Aivora Writing Result
+    </div>
+
+    <div>
+      ${escapeHTML(result)}
+    </div>
+
+    <br>
+
+    <div style="color:#64748b;font-size:12px;">
+      Demo mode • Tone: ${escapeHTML(tone)}
+      • Length: ${escapeHTML(length)}
+    </div>
+
+  `;
+
+
+  actions.style.display =
+    "grid";
+
+
+  window.scrollTo({
+    top:
+      document.body.scrollHeight,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+function copyWriting() {
+
+  const output =
+    document.getElementById(
+      "writingOutput"
+    );
+
+  const text =
+    output.innerText;
+
+  navigator.clipboard.writeText(
+    text
+  );
+
+  alert(
+    "✅ Writing copied!"
+  );
+
+}
+
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+function clearWriting() {
+
+  document.getElementById(
+    "writingPrompt"
+  ).value = "";
+
+  document.getElementById(
+    "writingOutput"
+  ).innerHTML = `
+
+    <div class="output-title">
+      Your writing will appear here
+    </div>
+
+    <div>
+      Enter your idea above and click
+      "Generate Writing".
+    </div>
+
+  `;
+
+  document.getElementById(
+    "outputActions"
   ).style.display =
     "none";
 
 }
 
 
-window.onclick =
-function(event) {
+/* =========================================================
+   COMING SOON
+========================================================= */
 
-  const modal =
-    document.getElementById(
-      "toolModal"
-    );
+function comingSoon(tool) {
 
-  if (event.target === modal) {
+  alert(
+    "🚀 " +
+    tool +
+    " is coming soon to Aivora!"
+  );
 
-    modal.style.display =
-      "none";
+}
 
-  }
 
-};
+/* =========================================================
+   SECURITY
+========================================================= */
+
+function escapeHTML(text) {
+
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
 
 </script>
 
